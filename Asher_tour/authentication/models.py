@@ -2,10 +2,12 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.core.validators import RegexValidator, EmailValidator
+from django.core.validators import EmailValidator
 from PIL import Image  # For handling image processing
 from phonenumber_field.modelfields import PhoneNumberField
 from django_countries.fields import CountryField
+from django.db.models.constraints import UniqueConstraint, CheckConstraint
+from django.db.models import Q
 
 class UserManager(BaseUserManager):
     """
@@ -60,7 +62,34 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone', 'country']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone']
+    
+    class Meta:
+        ordering = ["-date_joined"]  # Newest users first
+        indexes = [
+            # Composite index for frequent filtering by roles and activity
+            models.Index(fields=["is_staff", "active"], name="idx_is_staff_active"),
+            models.Index(fields=["is_admin", "active"], name="idx_is_customer_country"),
+            models.Index(fields=["is_customer", "country"], name="idx_is_customer_country"),
+            # Index for frequent ordering by date joined
+            models.Index(fields=["-date_joined"], name="idx_date_joined_desc"),
+        ]
+        constraints = [
+            # Unique constraint to ensure email uniqueness
+            UniqueConstraint(fields=["email"], name="unique_email_constraint"),
+            # Unique constraint to ensure phone number uniqueness, but only when phone is not null
+            UniqueConstraint(fields=["phone"], name="unique_phone_constraint"),
+            # Unique combinations for ensuring no duplication
+            UniqueConstraint(fields=["email", "phone"], name="unique_email_phone"),
+            UniqueConstraint(fields=["first_name", "last_name", "country"], name="unique_name_country"),
+            UniqueConstraint(fields=["email", "country"], name="unique_email_country"),
+            UniqueConstraint(fields=["phone", "country"], name="unique_phone_country"),
+            # Prevent inactive users from being marked as staff or admin
+            CheckConstraint(
+                check=Q(active=True) | (Q(is_staff=False) & Q(is_admin=False)),
+                name="check_active_for_staff_admin"
+            )
+        ]
 
     def __str__(self):
         return self.email
@@ -74,4 +103,6 @@ class User(AbstractBaseUser, PermissionsMixin):
                 img.thumbnail(new_img)
                 img.save(self.picture.path)
         super().save(*args, **kwargs)
+        
+    
 

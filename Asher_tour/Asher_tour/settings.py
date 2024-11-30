@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'Asher_admin.apps.AsherAdminConfig',
     'Home.apps.HomeConfig',
+    'system_db.apps.SystemDbConfig',
     
     'django.contrib.admin',
     'django.contrib.auth',
