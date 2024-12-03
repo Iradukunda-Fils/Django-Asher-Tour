@@ -1,60 +1,63 @@
 from django.urls import path
-from .views import Home
-from django.urls import path
 from .views import (
+    #Admin Dashboard
+    AdminDashboardView,
+        
+    # Users URLs
+    UsersView,NewUserView,EditUserView,
+    
     # Booking URLs
-    BookingListView, 
-    BookingDetailView, 
-    BookingCreateView, 
-    BookingUpdateView, 
-    BookingDeleteView,
+    BookingListView,
     
     # Package URLs
-    PackageListView, 
-    PackageDetailView,
+    PackageAddView,PackageActiveView,PackageExpiredView,PackagePendingView,
     
     # Comments URLs
-    CommentsListView, 
-    CommentsDetailView,
+    CommentsView, 
     
     # WishList URLs
     WishListView,
-    
-    # Users URLs
-    UserProfileView, 
-    UserDashboardView
+
 )
 
 app_name = 'Asher_admin'
 
 urlpatterns = [
-    path('', Home.as_view(), name='dashboard'),  
+    path('', AdminDashboardView.as_view(), name='dashboard'),
 ]
 
+#Users URLS
+
+urlpatterns += [
+    path('users/', UsersView.as_view(), name='users'),
+    path('new_user/', NewUserView.as_view(), name='new-user'),
+    path('edit_user/', EditUserView.as_view(), name='edit-user'),
+    ]
 
 
-app_name = 'asher_admin'  # This creates a namespace for the URLs
 
-urlpatterns = [
-    # Booking URLs
-    path('bookings/', BookingListView.as_view(), name='booking_list'),
-    path('bookings/<int:pk>/', BookingDetailView.as_view(), name='booking_detail'),
-    path('bookings/create/', BookingCreateView.as_view(), name='booking_create'),
-    path('bookings/<int:pk>/update/', BookingUpdateView.as_view(), name='booking_update'),
-    path('bookings/<int:pk>/delete/', BookingDeleteView.as_view(), name='booking_delete'),
-    
-    # Package URLs
-    path('packages/', PackageListView.as_view(), name='package_list'),
-    path('packages/<int:pk>/', PackageDetailView.as_view(), name='package_detail'),
-    
-    # Comments URLs
-    path('comments/', CommentsListView.as_view(), name='comments_list'),
-    path('comments/<int:pk>/', CommentsDetailView.as_view(), name='comments_detail'),
-    
-    # WishList URLs
-    path('wishlist/', WishListView.as_view(), name='wishlist'),
-    
-    # Users URLs
-    path('profile/', UserProfileView.as_view(), name='user_profile'),
-    path('dashboard/', UserDashboardView.as_view(), name='user_dashboard'),
-]
+#Booking URLs
+urlpatterns += [
+    path('bookings/', BookingListView.as_view(), name='bookings'),
+    ]
+
+#Packages URLs
+
+urlpatterns += [
+    path('package-add/', PackageAddView.as_view(), name='package-add'),
+    path('package-active/', PackageActiveView.as_view(), name='package-active'),
+    path('package-expired/', PackageExpiredView.as_view(), name='package-expired'),
+    path('package-pending/', PackagePendingView.as_view(), name='package-pending'),
+    ]
+
+#Comments Urls
+
+urlpatterns += [
+    path('comments/', CommentsView.as_view(), name='comments'),
+    ]
+
+
+#WishList URLs
+urlpatterns += [
+    path('wish-list/', WishListView.as_view(), name='wish-list'),
+    ]

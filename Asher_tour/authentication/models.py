@@ -39,7 +39,7 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_staff') is not True:
             raise ValueError(_('Superuser must have is_staff=True'))
 
-        return self.create_user(email, first_name, last_name, phone, country, password, **extra_fields)
+        return self.create_user(email, first_name, last_name, phone, password, **extra_fields)
 
 class User(AbstractBaseUser, PermissionsMixin):
     """
@@ -49,7 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     phone = PhoneNumberField(unique=True, null=True, blank=True)
-    country = CountryField(blank_label='Select Country')
+    country = CountryField(blank_label='Select Country',null=True)
     picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
     active = models.BooleanField(default=True)
     status = models.BooleanField(default=False)
@@ -69,7 +69,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         indexes = [
             # Composite index for frequent filtering by roles and activity
             models.Index(fields=["is_staff", "active"], name="idx_is_staff_active"),
-            models.Index(fields=["is_admin", "active"], name="idx_is_customer_country"),
+            models.Index(fields=["is_admin", "active"], name="idx_is_admin_active"),
             models.Index(fields=["is_customer", "country"], name="idx_is_customer_country"),
             # Index for frequent ordering by date joined
             models.Index(fields=["-date_joined"], name="idx_date_joined_desc"),

@@ -75,17 +75,20 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# asher_tour/settings.py
+# asher_tour/authentications and login
 AUTH_USER_MODEL = 'authentication.User'
+LOGIN_URL = 'authentication:login'
 
 
 ROOT_URLCONF = 'Asher_tour.urls'
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'Asher_admin/templates'),
+            os.path.join(BASE_DIR, 'Home/templates'),
             
             ],
         'APP_DIRS': True,
