@@ -62,7 +62,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'phone', 'country']
     
     class Meta:
         ordering = ["-date_joined"]  # Newest users first

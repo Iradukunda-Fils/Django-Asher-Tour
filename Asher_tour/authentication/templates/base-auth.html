@@ -36,7 +36,24 @@
       <title>Travele | Travel & Tour HTML5 template </title>
 </head>
 <body>
-    <div class="login-page" style="background-image: url({% static 'home/assets/images/convetion.jpg' %});">
+    <style>
+        .login-page .login-from-wrap{
+            opacity: 0.87;
+            border-radius: 10px;
+        }
+    </style>
+    <div class="login-page" style="background-image: url({% static 'convetion.jpg' %});">
+        {% if messages %}
+    <div class="messages-container" style="color:aliceblue" style="max-width: 10%;">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} d-flex align-items-center justify-content-between" role="alert">
+                    {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
         <div class="login-from-wrap">
            {% block auth_content %}
            <form class="login-from">

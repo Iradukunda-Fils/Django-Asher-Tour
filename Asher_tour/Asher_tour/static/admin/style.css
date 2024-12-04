@@ -169,11 +169,7 @@ textarea {
   overflow: auto;
 }
 
-[type=checkbox],
-[type=radio] {
-  box-sizing: border-box;
-  padding: 0;
-}
+
 
 [type=number]::-webkit-inner-spin-button,
 [type=number]::-webkit-outer-spin-button {
@@ -460,6 +456,7 @@ a {
   -ms-transition: color 0.3s;
   -o-transition: color 0.3s;
   transition: color 0.3s;
+  border-radius: 10px;
 }
 a:hover, a:focus, a:active {
   color: #2C75BA;
@@ -501,6 +498,7 @@ a:visited {
   font-weight: 600;
   line-height: 1;
   padding: 15px 30px;
+  border-radius: 10px;
 }
 @media screen and (max-width: 575px) {
   .outline-primary,
@@ -524,6 +522,7 @@ input[type=submit] {
   -ms-transition: background-color 0.3s;
   -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
+  border-radius: 10px;
 }
 input[type=button]:hover, input[type=button]:active, input[type=button]:focus,
 input[type=reset]:hover,
@@ -533,6 +532,7 @@ input[type=submit]:hover,
 input[type=submit]:active,
 input[type=submit]:focus {
   background-color: #2C75BA;
+  border-radius: 10px;
 }
 
 .button-primary,
@@ -546,6 +546,7 @@ input[type=submit]:focus {
   -ms-transition: background-color 0.3s;
   -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
+  border-radius: 10px;
 }
 .button-primary:hover, .button-primary:focus, .button-primary:active,
 .button-round:hover,
@@ -578,8 +579,8 @@ input[type=submit]:focus {
 .outline-round:hover,
 .outline-round:focus,
 .outline-round:active {
-  background-color: #2C75BA;
-  border-color: #2C75BA;
+  background-color: #519059;
+  border-color: #326d39;
   color: #ffffff;
 }
 
@@ -653,6 +654,7 @@ textarea {
   height: 45px;
   resize: none;
   padding: 0 10px;
+  border-radius: 10px;
 }
 input[type=text]:focus,
 input[type=email]:focus,
@@ -670,8 +672,9 @@ input[type=datetime]:focus,
 input[type=datetime-local]:focus,
 input[type=color]:focus,
 textarea:focus {
-  border-color: #F56960;
+  border-color: #69AA60;
   outline: 0;
+  border-radius: 10px;
 }
 input[type=text]:-webkit-autofill, input[type=text]:-webkit-autofill:hover, input[type=text]:-webkit-autofill:focus, input[type=text]:-webkit-autofill:active,
 input[type=email]:-webkit-autofill,
@@ -782,7 +785,7 @@ form label {
   padding: 0 55px 0 10px;
 }
 .search-form button {
-  background-color: #F56960;
+  background-color: #69AA60;
   color: #ffffff;
   font-size: 14px;
   border: none;
@@ -797,7 +800,7 @@ form label {
   transition: background-color 0.4s;
 }
 .search-form button:hover {
-  background-color: #2C75BA;
+  background-color: #519059;
 }
 
 .form-group {
@@ -832,25 +835,6 @@ form label {
   left: 0;
   top: 2px;
 }
-.form-group label .custom-checkbox:before {
-  background-color: #F56960;
-  content: "";
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  opacity: 0;
-}
-.form-group label input[type=checkbox] {
-  opacity: 0;
-  position: absolute;
-  z-index: -9;
-}
-.form-group label input:checked ~ .custom-checkbox:before {
-  opacity: 1;
-}
-
 .custom-input {
   margin-bottom: 0;
 }
@@ -865,7 +849,7 @@ form label {
   margin-right: 5px;
 }
 .custom-input-field:before {
-  background-color: #0791BE;
+  background-color: #69AA60;
   content: "\f00c";
   color: #ffffff;
   font-family: "Font Awesome 5 Free";
@@ -886,13 +870,9 @@ form label {
   transition: all 0.3s linear 0.1s;
 }
 
-input[type=checkbox] {
-  position: absolute;
-  z-index: -9999;
-  opacity: 0;
-}
+
 input:checked ~ .custom-input-field {
-  border-color: #0791BE;
+  border-color: #519059
 }
 input:checked ~ .custom-input-field:before {
   opacity: 1;
@@ -942,7 +922,7 @@ input:checked ~ .custom-input-field:before {
   filter: alpha(opacity=0);
 }
 .upload-input .form-group:hover span {
-  border-color: #2C75BA;
+  border-color: #519059
 }
 
 /* -----------------------------------
@@ -1377,7 +1357,7 @@ input:checked ~ .custom-input-field:before {
 }
 
 .notify {
-  background-color: #F56960;
+  background-color: #69AA60;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -1649,6 +1629,7 @@ input:checked ~ .custom-input-field:before {
 .user-form-wrap button {
   margin-top: 20px;
   border: none;
+  border-radius: 10px;
 }
 
 /* -----------------------------------
@@ -1681,7 +1662,7 @@ Tour packages added css
   font-size: 18px;
 }
 .custom-field-wrap .dragable-field-inner .upload-input .form-group span {
-  background-color: #F56960;
+  background-color: #69AA60;
   border: none;
   color: #ffffff;
   -webkit-transition: all 0.4s;
@@ -1691,7 +1672,7 @@ Tour packages added css
   transition: all 0.4s;
 }
 .custom-field-wrap .dragable-field-inner .upload-input .form-group:hover span {
-  background-color: #2C75BA;
+  background-color: #519059
 }
 .custom-field-wrap .publish-btn {
   display: -webkit-box;
@@ -1804,7 +1785,7 @@ Tour packages added css
   margin-bottom: 15px;
 }
 .package-wrap .package-price {
-  background-color: #F56960;
+  background-color: #519059;
   position: absolute;
   top: 20px;
   right: 0;
@@ -1953,7 +1934,7 @@ login form css
   z-index: 2;
 }
 .offer span {
-  background-color: rgba(245, 105, 96, 0.8);
+  background-color: #69AA60;
   color: #ffffff;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;

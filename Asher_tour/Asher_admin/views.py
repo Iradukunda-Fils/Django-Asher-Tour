@@ -5,13 +5,16 @@ from django.views.generic import(
     UpdateView, DeleteView
 )
 from django.urls import reverse_lazy
+from .forms import UserForm
+from authentication.permisions import AdminAuth
+from django.contrib.auth import get_user_model
 
 # Create your views here.
 
+User = get_user_model()
 
 
-
-class AdminDashboardView(TemplateView):
+class AdminDashboardView(AdminAuth,TemplateView):
     template_name = 'admin/dashboard.html'
     
     
@@ -19,7 +22,7 @@ class AdminDashboardView(TemplateView):
 
 
 # Booking Views
-class BookingListView(TemplateView):
+class BookingListView(AdminAuth, TemplateView):
     template_name = 'admin/booking.html'
 
 # class BookingDetailView(LoginRequiredMixin, DetailView):
@@ -49,16 +52,16 @@ class BookingListView(TemplateView):
 #     success_url = reverse_lazy('booking_list')
 
 # Package Views
-class PackageAddView(TemplateView):
+class PackageAddView(AdminAuth, TemplateView):
     template_name = 'admin/package/add-package.html'
     
-class PackageActiveView(TemplateView):
+class PackageActiveView(AdminAuth, TemplateView):
     template_name = 'admin/package/package-active.html'
     
-class PackageExpiredView(TemplateView):
+class PackageExpiredView(AdminAuth, TemplateView):
     template_name = 'admin/package/package-expired.html'
     
-class PackagePendingView(TemplateView):
+class PackagePendingView(AdminAuth, TemplateView):
     template_name = 'admin/package/package-expired.html'
 
     # def get_context_data(self, **kwargs):
@@ -75,7 +78,7 @@ class PackagePendingView(TemplateView):
     #     return context
 
 # # Comments Views
-class CommentsView(TemplateView):
+class CommentsView(AdminAuth, TemplateView):
     template_name = 'admin/comments.html'
 
     # def get_context_data(self, **kwargs):
@@ -92,7 +95,7 @@ class CommentsView(TemplateView):
     #     return context
 
 # WishList Views
-class WishListView(TemplateView):
+class WishListView(AdminAuth, TemplateView):
     template_name = 'admin/wishlist.html'
 
     # def get_context_data(self, **kwargs):
@@ -101,14 +104,16 @@ class WishListView(TemplateView):
     #     return context
 
 # Users Views
-class UsersView(TemplateView):
+class UsersView(AdminAuth, TemplateView):
     template_name = 'admin/users.html'
     
-class NewUserView(TemplateView):
+class NewUserView(AdminAuth, CreateView):
+    model = User
+    form_class = UserForm
     template_name = 'admin/users/new-user.html'
     
     
-class EditUserView(TemplateView):
+class EditUserView(AdminAuth, TemplateView):
     template_name = 'admin/users/user-edit.html'
 
 # class UserProfileView(TemplateView):
