@@ -1,0 +1,801 @@
+{% extends 'base-home.html' %}
+
+{% load static %}
+
+{% block main_content %}
+
+<main id="content" class="site-main">
+    <!-- Home banner html start -->
+    <section class="home-banner-section">
+       <div class="home-banner-items">
+          <div class="banner-inner-wrap" style="background-image: url({% static 'home/assets/images/index_welcome.jpg' %});"></div>
+             <div class="banner-content-wrap">
+                <div class="container">
+                   <div class="row align-items-center">
+                      <div class="col-lg-8">
+                         <div class="banner-content section-heading section-heading-white">
+                            <h5>EXPLORE. ASHER. FOUNDATION</h5>
+                            <h2 class="banner-title" style=" font-size: clamp(16px, 4vw, 35px);">Welcome to Asher Safaris, Your Gateway to the Hidden Gems of Rwanda</h2>
+                            <div class="title-icon-divider"><i class="fas fa-suitcase-rolling"></i></div>
+                            <p>Experience the land of a thousand hills, where lush green landscapes, vibrant culture, and breathtaking wildlife create memories that last a lifetime. At Asher Safaris, we don’t just offer tours; we offer a journey that immerses you in the heart of Rwanda’s rich history, warm hospitality, and awe-inspiring natural wonders.</p>
+                            <div class="slider-button">
+                               <a href="{% url 'Home:about' %}" class="button-primary">ABOUT US</a>
+                               <a href="{% url 'Home:service' %}" class="button-secondary">OUR SERVICE</a>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="col-lg-4">
+                         <!-- Home search field html start -->
+                         {% comment %} <div class="trip-search-section">
+                            <div class="container">
+                               <div class="trip-search-inner secondary-bg">
+                                  <div class="input-group width-col-1">
+                                     <label> Search Destination* </label>
+                                     <input type="text" name="s" placeholder="Enter Destination">
+                                  </div>
+                                  <div class="input-group width-col-1">
+                                     <label> Pax Number* </label>
+                                     <input type="text" name="s" placeholder="No.of People">
+                                  </div>
+                                  <div class="input-group width-col-1">
+                                     <label> Checkin Date* </label>
+                                     <i class="far fa-calendar"></i>
+                                     <input class="input-date-picker" type="text" name="s" placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
+                                  </div>
+                                  <div class="input-group width-col-1">
+                                     <label> Checkout Date* </label>
+                                     <i class="far fa-calendar"></i>
+                                     <input class="input-date-picker" type="text" name="s" placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
+                                  </div>
+                                  <div class="input-group width-col-1">
+                                     <label class="screen-reader-text"> Search </label>
+                                     <input type="submit" name="travel-search" value="INQUIRE NOW">
+                                  </div>
+                               </div>
+                            </div>
+                         </div> {% endcomment %}
+                         <!-- search search field html end -->
+                      </div>
+                   </div>
+                </div>
+             </div>
+          <div class="overlay"></div>
+       </div>
+    </section>
+    <!-- banner html start -->
+    <section class="destination-section">
+       <div class="container">
+          <div class="section-heading text-center">
+             <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                   <h5>POPULAR DESTINATION</h5>
+                   <h2>TOP NOTCH DESTINATION</h2>
+                   <div class="title-icon-divider"><i class="fas fa-suitcase-rolling"></i></div>
+                </div>
+             </div>
+          </div>
+          <div class="destination-inner destination-four-column">
+             <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                   <div class="desti-item text-center">
+                      <figure class="desti-image">
+                         <img src="{% static 'home/assets/images/clients/nyungwe-.jpg' %}" alt="">
+                         <div class="rating-start" title="Rated 5 out of 4">
+                            <span style="width: 53%"></span>
+                         </div>
+                      </figure>
+                      <div class="desti-content">
+                         <h3>
+                            <a href="#">Nyungwe Canopy Walkway</a>
+                         </h3>
+                         <div class="meta-cat">
+                            <a href="#">Nyamasheke District</a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                   <div class="desti-item text-center">
+                      <figure class="desti-image">
+                         <img src="{% static 'home/assets/images/destinations/img2.png' %}" alt="">
+                         <div class="rating-start" title="Rated 5 out of 4">
+                            <span style="width: 53%"></span>
+                         </div>
+                      </figure>
+                      <div class="destination-content">
+                         <h3>
+                            <a href="#">Volcanoes National Park</a>
+                         </h3>
+                         <div class="meta-cat">
+                            <a href="#">Musanze District</a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                   <div class="desti-item text-center">
+                      <figure class="desti-image">
+                         <img src="{% static 'home/assets/images/destinations/img4.jpeg' %}" alt="">
+                         <div class="rating-start" title="Rated 5 out of 4">
+                            <span style="width: 53%"></span>
+                         </div>
+                      </figure>
+                      <div class="desti-content">
+                         <h3>
+                            <a href="#">Gorilla Wooden Statue</a>
+                         </h3>
+                         <div class="meta-cat">
+                            <a href="#">Musanze District</a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                   <div class="desti-item text-center">
+                      <figure class="desti-image">
+                         <img src="{% static 'home/assets/images/destinations/img5.jpg' %}" alt="">
+                         <div class="rating-start" title="Rated 5 out of 4">
+                            <span style="width: 53%"></span>
+                         </div>
+                      </figure>
+                      <div class="desti-content">
+                         <h3>
+                            <a href="#">King's Palace Museum</a>
+                         </h3>
+                         <div class="meta-cat">
+                            <a href="#">Nyanza</a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             {% comment %} <div class="btn-wrap text-center">
+                <a href="#" class="button-primary">MORE DESTINATION</a>
+             </div> {% endcomment %}
+          </div>
+       </div>
+    </section>
+    <section class="home-about-section">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-7">
+                <div class="about-img-wrap">
+                   <div class="about-img-left">
+                      <div class="about-content secondary-bg d-flex flex-wrap">
+                         <h3>Something you want to know about us !!</h3>
+                         <a href="{% url 'Home:about' %}" class="button-primary">LEARN MORE</a>
+                      </div>
+                      <div class="about-img">
+                         <img src="{% static 'home/assets/images/clients/bird.jpg' %}" alt="">
+                      </div>
+                   </div>
+                   <div class="about-img-right">
+                      <div class="about-img">
+                         <img src="{% static 'home/assets/images/clients/coffee.jpg' %}" alt="">
+                      </div>
+                      <div class="about-img">
+                         <img src="{% static 'home/assets/images/clients/intore.jpg' %}" alt="">
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-5">
+                <div class="banner-content section-heading">
+                   <h2 class="banner-title">OUR UNIQUENESS</h2>
+                   <div class="title-icon-divider"><i class="fas fa-suitcase-rolling"></i></div>
+
+                </div>
+                <div class="about-service-container">
+                   <div class="about-service">
+                      <div class="about-service-icon">
+                        <i class="fa fa-globe" style="font-size: large;"></i>
+                         <img src="{% static 'home/assets/images/icon15.png' %}" alt="">
+                      </div>
+                      <div class="about-service-content">
+                         <h4>Authentic Experiences</h4>
+                         <p>Explore the heart of Rwanda with tours that reveal the true spirit of the land, from breathtaking volcanoes to tranquil lakes.</p>
+                      </div>
+                   </div>
+                   <div class="about-service">
+                     <div class="about-service-icon">
+                        <i class="fa fa-user-tie" style="font-size: large;"></i>
+                         <img src="{% static 'home/assets/images/icon15.png' %}" alt="">
+                     </div>
+                      <div class="about-service-content">
+                         <h4>Expert Guides</h4>
+                         <p>Meet our passionate local guides who share stories, insights, and unparalleled knowledge to make each moment unforgettable.</p>
+                      </div>
+                   </div>
+                   <div class="about-service">
+                     <div class="about-service-icon">
+                        <i class="fa fa-leaf" style="font-size: large;"></i>
+                         <img src="{% static 'home/assets/images/icon15.png' %}" alt="">
+                     </div>
+                      <div class="about-service-content">
+                         <h4>Sustainable Travel</h4>
+                         <p>Travel with a purpose. Our eco-conscious tours support local communities and safeguard the environment for future generations.</p>
+                     </div>
+                   </div>
+                   <div class="about-service">
+                     <div class="about-service-icon">
+                        <i class="fa fa-calendar-alt" style="font-size: large;"></i>
+                         <img src="{% static 'home/assets/images/icon15.png' %}" alt="">
+                     </div>
+                      <div class="about-service-content">
+                         <h4>Tailored Itineraries</h4>
+                         <p>Enjoy personalized journeys designed to suit your interests, whether you seek adventure, relaxation, or cultural immersion.</p>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+    <!-- client section html start -->
+    {% comment %} <div class="client-section">
+       <div class="container">
+          <div class="client-wrap client-slider">
+             
+             <div class="client-item">
+                <figure>
+                   <img src="{% static 'home/assets/images/logo8.png' %}" alt="">
+                </figure>
+             </div>
+             <div class="client-item">
+                <figure>
+                   <img src="{% static 'home/assets/images/logo9.png' %}" alt="">
+                </figure>
+             </div>
+             <div class="client-item">
+               <figure>
+                  <img src="{% static 'home/assets/images/logo10.png' %}" alt="">
+               </figure>
+             </div>
+             <div class="client-item">
+               <figure>
+                  <img src="{% static 'home/assets/images/logo11.png' %}" alt="">
+               </figure>
+             </div>
+             <div class="client-item">
+                <figure>
+                   <img src="{% static 'home/assets/images/logo8.png' %}" alt="">
+                </figure>
+             </div>
+          </div>
+       </div>
+    </div> {% endcomment %}
+    <!-- client html end -->
+    <!-- Home packages section html start -->
+    <section class="package-section bg-light-grey">
+       <div class="container">
+          <div class="section-heading text-center">
+             <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                   <h5>EXPLORE GREAT PLACES</h5>
+                   <h2>POPULAR PACKAGES</h2>
+                   <div class="title-icon-divider"><i class="fas fa-suitcase-rolling"></i></div>
+                </div>
+             </div>
+          </div>
+          <div class="package-inner package-inner-list">
+             <div class="row">
+                <div class="col-lg-6">
+                   <div class="package-wrap package-wrap-list">
+                      <figure class="feature-image">
+                         <a href="#">
+                            <img src="{% static 'home/assets/images/destinations/Akagera.jpg' %}" alt="">
+                         </a>
+                         {% comment %} <div class="package-price">
+                            <h6>
+                               <span>$1,900 </span> / per person
+                            </h6>
+                         </div> {% endcomment %}
+                         {% comment %} <div class="package-meta text-center">
+                            <ul>
+                               <li>
+                                  <i class="far fa-clock"></i>
+                                  7D/6N
+                               </li>
+                               <li>
+                                  <i class="fas fa-user-friends"></i>
+                                  People: 5
+                               </li>
+                               <li>
+                                  <i class="fas fa-map-marker-alt"></i>
+                                  Malaysia
+                               </li>
+                            </ul>
+                         </div> {% endcomment %}
+                      </figure>
+                      <div class="package-content">
+                         <h3>
+                            <a href="#">Akagera Package</a>
+                         </h3>
+                         <div class="review-area">
+                            <span class="review-text">(25 reviews)</span>
+                            <div class="rating-start" title="Rated 5 out of 5">
+                               <span style="width: 60%"></span>
+                            </div>
+                         </div>
+                         <p>Experience the thrill of a safari in Akagera National Park, home to Rwanda's Big Five and countless
+                            other wildlife. This package offers game drives, birdwatching, and boat safaris on Lake Ihema.</p>
+                         <div class="btn-wrap">
+                           <a href="mailto:ashersafarisrwanda@gmail.com" class="button-text width-6"> Click to Mail Us<i class="fas fa-arrow-right"></i></a>       
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-lg-6">
+                   <div class="package-wrap package-wrap-list">
+                      <figure class="feature-image">
+                         <a href="#">
+                            <img src="{% static 'home/assets/images/destinations/img4.jpeg' %}" alt="">
+                         </a>
+                         {% comment %} <div class="package-price">
+                            <h6>
+                               <span>$1,350 </span> / per person
+                            </h6>
+                         </div> {% endcomment %}
+                         {% comment %} <div class="package-meta text-center">
+                            <ul>
+                               <li>
+                                  <i class="far fa-clock"></i>
+                                  7D/6N
+                               </li>
+                               <li>
+                                  <i class="fas fa-user-friends"></i>
+                                  People: 5
+                               </li>
+                               <li>
+                                  <i class="fas fa-map-marker-alt"></i>
+                                  Malaysia
+                               </li>
+                            </ul>
+                         </div> {% endcomment %}
+                      </figure>
+                      <div class="package-content">
+                         <h3>
+                            <a href="#">Volcanoes Package</a>
+                         </h3>
+                         <div class="review-area">
+                            <span class="review-text">(22 reviews)</span>
+                            <div class="rating-start" title="Rated 5 out of 5">
+                               <span style="width: 80%"></span>
+                            </div>
+                         </div>
+                         <p>Trek through Volcanoes National Park and encounter the majestic mountain gorillas. 
+                           This package provides unforgettable close-up encounters with the world's most endangered 
+                           primates in their natural habitat.</p>
+                           <div class="btn-wrap">
+                              <a href="mailto:ashersafarisrwanda@gmail.com" class="button-text width-6"> Click to Mail Us<i class="fas fa-arrow-right"></i></a>       
+                            </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-lg-6">
+                   <div class="package-wrap package-wrap-list">
+                      <figure class="feature-image">
+                         <a href="#">
+                            <img src="{% static 'home/assets/images/clients/mountains.jpg' %}" alt="">
+                         </a>
+                         {% comment %} <div class="package-price">
+                            <h6>
+                               <span>$1,000 </span> / per person
+                            </h6>
+                         </div> {% endcomment %}
+                         {% comment %} <div class="package-meta text-center">
+                            <ul>
+                               <li>
+                                  <i class="far fa-clock"></i>
+                                  7D/6N
+                               </li>
+                               <li>
+                                  <i class="fas fa-user-friends"></i>
+                                  People: 5
+                               </li>
+                               <li>
+                                  <i class="fas fa-map-marker-alt"></i>
+                                  Malaysia
+                               </li>
+                            </ul>
+                         </div> {% endcomment %}
+                      </figure>
+                      <div class="package-content">
+                         <h3>
+                            <a href="#">Nyungwe Package</a>
+                         </h3>
+                         <div class="review-area">
+                            <span class="review-text">(22 reviews)</span>
+                            <div class="rating-start" title="Rated 5 out of 5">
+                               <span style="width: 80%"></span>
+                            </div>
+                         </div>
+                         <p>Explore the lush rainforests of Nyungwe National Park. This package includes chimpanzee tracking,
+                            canopy walks, and birdwatching, offering an immersive experience in one of Africa's oldest rainforests.</p>
+                            <div class="btn-wrap">
+                              <a href="mailto:ashersafarisrwanda@gmail.com" class="button-text width-6"> Click to Mail Us<i class="fas fa-arrow-right"></i></a>       
+                            </div>
+                      </div>
+                   </div>
+                </div>
+                <div class="col-lg-6">
+                   <div class="package-wrap">
+                      <figure class="feature-image">
+                         <a href="#">
+                            <img src="{% static 'home/assets/images/destinations/nyungwe.jpg' %}" alt="">
+                         </a>
+                         {% comment %} <div class="package-price">
+                            <h6>
+                               <span>$1,100 </span> / per person
+                            </h6>
+                         </div> {% endcomment %}
+                         {% comment %} <div class="package-meta text-center">
+                            <ul>
+                               <li>
+                                  <i class="far fa-clock"></i>
+                                  7D/6N
+                               </li>
+                               <li>
+                                  <i class="fas fa-user-friends"></i>
+                                  People: 5
+                               </li>
+                               <li>
+                                  <i class="fas fa-map-marker-alt"></i>
+                                  Malaysia
+                               </li>
+                            </ul>
+                         </div> {% endcomment %}
+                      </figure>
+                      <div class="package-content">
+                         <h3>
+                            <a href="#">Karisimbi Package</a>
+                         </h3>
+                         <div class="review-area">
+                            <span class="review-text">(22 reviews)</span>
+                            <div class="rating-start" title="Rated 5 out of 5">
+                               <span style="width: 100%"></span>
+                            </div>
+                         </div>
+                         <p> Challenge yourself with a hike up Mount Karisimbi, the highest peak in Rwanda. This package includes
+                            breathtaking views, lush forests, and a rewarding experience for avid trekkers.</p>
+                            <div class="btn-wrap">
+                              <a href="mailto:ashersafarisrwanda@gmail.com" class="button-text width-6"> Click to Mail Us<i class="fas fa-arrow-right"></i></a>       
+                            </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             {% comment %} <div class="btn-wrap text-center">
+                <a href="#" class="button-primary">VIEW ALL PACKAGES</a>
+             </div> {% endcomment %}
+          </div>
+       </div>
+    </section>
+    <!-- packages html end -->
+    <!-- Home activity section html start -->
+    <section class="activity-section activity-bg-image" style="background-image: url({% static 'home/assets/images/clients/abakobwa.jpg' %});">
+       <div class="container">
+          <div class="section-heading section-heading-white text-center">
+             <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                   <h5>EXPLORE GREAT PLACES</h5>
+                   <h2>POPULAR PACKAGES</h2>
+                   <div class="title-icon-divider"><i class="fas fa-suitcase-rolling"></i></div>
+                </div>
+             </div>
+          </div>
+          <div class="activity-inner row">
+             <div class="col-lg-2 col-md-4 col-6">
+                <div class="activity-item">
+                   <div class="activity-icon">
+                      <a href="#">
+                         <img src="{% static 'home/assets/images/img44.png' %}" alt="">
+                      </a>
+                   </div>
+                   <div class="activity-content">
+                      <h4>
+                         <a href="#">Adventure</a>
+                      </h4>
+                      <p>15 Destination</p>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-2 col-md-4 col-6">
+                <div class="activity-item">
+                   <div class="activity-icon">
+                      <a href="#">
+                         <img src="{% static 'home/assets/images/img45.png' %}" alt="">
+                      </a>
+                   </div>
+                   <div class="activity-content">
+                      <h4>
+                         <a href="#">Trekking</a>
+                      </h4>
+                      <p>12 Destination</p>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-2 col-md-4 col-6">
+                <div class="activity-item">
+                   <div class="activity-icon">
+                      <a href="#">
+                         <img src="{% static 'home/assets/images/img46.png' %}" alt="">
+                      </a>
+                   </div>
+                   <div class="activity-content">
+                      <h4>
+                         <a href="#">Camp Fire</a>
+                      </h4>
+                      <p>7 Destination</p>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-2 col-md-4 col-6">
+                <div class="activity-item">
+                   <div class="activity-icon">
+                      <a href="#">
+                         <img src="{% static 'home/assets/images/img47.png' %}" alt="">
+                      </a>
+                   </div>
+                   <div class="activity-content">
+                      <h4>
+                         <a href="#">Off Road</a>
+                      </h4>
+                      <p>15 Destination</p>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-2 col-md-4 col-6">
+                <div class="activity-item">
+                   <div class="activity-icon">
+                      <a href="#">
+                         <img src="{% static 'home/assets/images/img48.png' %}" alt="">
+                      </a>
+                   </div>
+                   <div class="activity-content">
+                      <h4>
+                         <a href="#">Camping</a>
+                      </h4>
+                      <p>13 Destination</p>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-2 col-md-4 col-6">
+                <div class="activity-item">
+                   <div class="activity-icon">
+                      <a href="#">
+                         <img src="{% static 'home/assets/images/img49.png' %}" alt="">
+                      </a>
+                   </div>
+                   <div class="activity-content">
+                      <h4>
+                         <a href="#">Exploring</a>
+                      </h4>
+                      <p>25 Destination</p>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+    <!-- activity html end -->
+    <!-- Home choice section html start -->
+    <section class="choice-section">
+       <div class="container">
+          <div class="section-heading text-center">
+             <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                   <h5>JOURNEY IS FUN</h5>
+                   <h2>ASHER SAFARI'S BEST CHOICE</h2>
+                   <div class="title-icon-divider"><i class="fas fa-suitcase-rolling"></i></div>
+                </div>
+             </div>
+          </div>
+          <div class="choice-slider">
+             <div class="choice-slider-item" style="background-image: url({% static 'home/assets/images/destinations/Boat.jpg' %});">
+               <div class="row">
+                  <div class="col-lg-6 offset-lg-3">
+                      <div class="choice-slider-content text-center">
+                         <h3>Mountains</h3>
+                         <p>Rwanda’s landscape is defined by its rolling hills and towering peaks, including Mount Karisimbi, the highest at 4,507 meters. The Virunga Mountain Range is part of the country's breathtaking scenery, providing unique opportunities for trekking and wildlife viewing.</p>
+                        
+                        
+                      </div>
+                  </div>
+               </div>
+             </div>
+             <div class="choice-slider-item" style="background-image: url({% static 'home/assets/images/destinations/Akagera.jpg' %});">
+               <div class="row">
+                  <div class="col-lg-6 offset-lg-3">
+                      <div class="choice-slider-content text-center">
+                         <h3> Wild Animals</h3>
+                         <p>Akagera National Park offers sightings of the Big Five (lion, leopard, elephant, buffalo, and rhino) and other wildlife like giraffes, zebras, and hippos. Nyungwe National Park is known for its primates, including chimpanzees and colobus monkeys, and a rich birdlife.</p>
+                        
+                      </div>
+                  </div>
+               </div>
+             </div>
+             <div class="choice-slider-item" style="background-image: url({% static 'home/assets/images/destinations/img4.jpeg' %});">
+               <div class="row">
+                  <div class="col-lg-6 offset-lg-3">
+                      <div class="choice-slider-content text-center">
+                         <h3>Gorillas</h3>
+                         <p>Rwanda is renowned for its mountain gorillas, with Volcanoes National Park being home to over half of the world’s population. Visitors can experience unforgettable gorilla trekking, contributing to conservation efforts and sustainable tourism.</p>
+                         
+                      </div>
+                  </div>
+               </div>
+             </div>
+          </div>
+       </div>
+    </section>
+    <!-- choice html end -->
+    <!-- Home special section html start -->
+    <div class="container py-5 text-center">
+      <h2 class="fw-bold mb-4">Unveil Rwanda’s Hidden Wonders with Asher Safali</h2>
+      <p class="lead fw-semibold">
+         Discover the Journey Beyond the Ordinary
+      </p>
+      <blockquote class="blockquote text-muted">
+         <p class="mb-0">
+            Step into a world where adventure meets sustainability. Asher Safali isn’t just a tour company; it’s your gateway to uncovering Rwanda’s most captivating secrets, from misty mountain peaks to serene lakeshores. Every journey inspires curiosity, connection, and unforgettable moments.
+         </p>
+      </blockquote>
+   </div>
+   
+    <!-- best html end -->
+    <!-- Home subscribe section html start -->
+    <section class="subscribe-section subscribe-bg-image" style="background-image: url({% static 'home/assets/images/clients/king.jpg' %});">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-8" style="color: whitesmoke;">
+                <h2 style="color: whitesmoke;">Rwanda’s Ceremonies</h2> 
+                <blockquote class="blockquote" style="color: whitesmoke;">
+                  Rwanda's ceremonies are vibrant celebrations that reflect the country's 
+                  rich cultural heritage. They include traditional dances like Intore, cultural festivals, 
+                  weddings, and religious events, all featuring music, dance, and community participation. 
+                  National ceremonies, such as Heroes' Day and Genocide Memorial Day, honor history and resilience, 
+                  reinforcing unity and respect.
+                </blockquote>
+             </div>
+          </div>
+       </div>
+    </section>
+    <!-- subscribe html end -->
+    <!-- Home team section html start -->
+    {% comment %} <section class="team-section">
+       <div class="container">
+          <div class="section-heading text-center">
+             <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                   <h5>TEAM MEMBERS</h5>
+                   <h2>OUR TOUR GUIDE</h2>
+                   <div class="title-icon-divider"><i class="fas fa-suitcase-rolling"></i></div>
+                </div>
+             </div>
+          </div>
+          <div class="row">
+             <div class="col-lg-3 col-sm-6">
+                <div class="team-item">
+                   <figure class="team-image">
+                      <img src="assets/images/img38.jpg" alt="">
+                   </figure>
+                   <div class="team-content">
+                      <div class="heading-wrap">
+                         <h3>Sony Madison</h3>
+                         <h5>Travel Agent</h5>
+                      </div>
+                      <div class="social-links">
+                         <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-3 col-sm-6">
+                <div class="team-item">
+                   <figure class="team-image">
+                      <img src="assets/images/img42.jpg" alt="">
+                   </figure>
+                   <div class="team-content">
+                      <div class="heading-wrap">
+                         <h3>Alison White</h3>
+                         <h5>Travel Guide</h5>
+                      </div>
+                      <div class="social-links">
+                         <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-3 col-sm-6">
+                <div class="team-item">
+                   <figure class="team-image">
+                      <img src="assets/images/img43.jpg" alt="">
+                   </figure>
+                   <div class="team-content">
+                      <div class="heading-wrap">
+                         <h3>William Hobb</h3>
+                         <h5>Travel Guide</h5>
+                      </div>
+                      <div class="social-links">
+                         <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="col-lg-3 col-sm-6">
+                <div class="team-item">
+                   <figure class="team-image">
+                      <img src="assets/images/img39.jpg" alt="">
+                   </figure>
+                   <div class="team-content">
+                      <div class="heading-wrap">
+                         <h3>Jennie Bennett</h3>
+                         <h5>Travel Guide</h5>
+                      </div>
+                      <div class="social-links">
+                         <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                         </ul>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section> {% endcomment %}
+    <!-- Home blog section html start -->
+
+    <div class="container py-5 text-center">
+      <h2 class="fw-bold mb-4">Contact Us and Begin Your Adventure</h2>
+      <blockquote class="blockquote text-muted">
+         <p>
+            Ready to embark on a journey like no other? Reach out to us and let’s craft your perfect escape. Whether you seek thrills, serenity, or a deeper connection to Rwanda’s soul, Asher Safali is here to make it unforgettable. 
+        </p>
+        <p >
+            Your adventure starts with a single step <span class="fw-bold text-success">contact us today!</span>
+        </p>
+      </blockquote>
+   </div>
+
+    <!-- blog html end -->
+    <!-- Home callback section html start -->
+    <section class="bg-img-callback" style="background-image: url({% static 'home/assets/images/clients/mountains.jpg' %});">
+       <div class="container">
+          <div class="row align-items-center justify-content-between">
+             <div class="col-lg-9 col-md-8">
+                <div class="callback-content">
+                   <h2>Join Us for Updates and Inspiration</h2>
+                   <p>Stay connected with Asher Safali for the latest updates, travel tips, and stories from Rwanda’s hidden gems. Be the first to know about exclusive tours and events. Sign up now and let the adventure come to you!
+                   </p>
+                </div>
+             </div>
+             <div class="col-lg-3 col-md-4">
+                <div class="button-wrap">
+                   <a href="#" class="button-secondary">Join Us</a>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+    <!-- callback html end -->
+ </main>
+{% endblock main_content %}

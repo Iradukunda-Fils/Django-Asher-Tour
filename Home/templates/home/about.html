@@ -1,0 +1,108 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block main_content %}
+
+<main id="content" class="site-main">
+   <!-- Inner Banner html start-->
+   <section class="inner-banner-wrap">
+      <div class="inner-baner-container" style="background-image: url({% static 'home/assets/images/31.jpg' %});">
+         <div class="container">
+            <div class="inner-banner-content">
+               <h1 class="inner-title">About us</h1>
+            </div>
+         </div>
+      </div>
+      <div class="inner-shape"></div>
+   </section>
+   <!-- Inner Banner html end-->
+   <!-- about section html start -->
+   <section class="about-section about-page-section">
+      <div class="about-service-wrap">
+         <div class="container">
+            <div class="section-heading">
+               <div class="row align-items-end m-auto">
+                  <div class="col-lg-20">
+                     <h5 class="dash-style">About our company</h5>
+                     <h3 class="text-center">FOUNDER AND CEO, ASHER SAFARIS.</h3>
+                  </div>
+                  <div class="col-lg-20">
+                     <div class="section-disc">
+                        <p >As the CEO of Asher Safaris, my mission is to share the world’s most breathtaking destinations and unforgettable experiences with you. We’re passionate about crafting unique journeys that blend adventure, culture and comfort, ensuring every moment becomes a cherished memory.
+                           Join us, and let’s explore the extraordinary together. Your next adventure starts here!
+                           Merci Josue
+                           CEO, Asher Safaris. 
+                           </p>
+                           <h3 class="text-center">TEAM, Asher Safaris</h3>
+                        <p>Our team comprises passionate travel experts who are dedicated to crafting itineraries that combine comfort, authenticity and excitement. We partner with trusted local guides and businesses to ensure your life but also supports the communities we visit.
+                           As a company, our mission is simple: to inspire and enable journeys that create lasting memories while fostering respect for the diverse cultures and environments we explore. 
+                           Thank you for choosing Asher Safaris. Let us take you on an adventure that goes beyond expectations Your journey starts here.
+                           .</p>
+                        <b><p>Warm regards,</p></b>
+                        <b><p>Merci Josue</p></b>
+                        <b><p>CEO, Asher Safaris.</p></b>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="about-video-wrap" style="background-image: url({% static 'home/assets/images/clients/Lake-Kivu.JPG' %});">
+               <div class="video-button">
+                  <a id="video-container" data-video-id="QeA4KOMbJq4">
+                     <i class="fas fa-play"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- client section html start -->
+      <div class="client-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 offset-lg-2">
+                  <div class="section-heading">
+                     <h5 class="dash-style">OUR MISSION</h5>
+                     <h2 class="text-center">WHY CHOOSE US?</h2>
+                     <blockquote>Personalized Experiences: Our tour company make itineraries to match the unique preferences and interests
+                        of our clients, ensuring a truly customized and memorable experience.</blockquote>
+                     <blockquote>Expert Local Guides: Our team includes knowledgeable and passionate local guides who provide insider perspectives,
+                        hidden gems, and cultural insights that can't be found elsewhere.</blockquote>
+                     <blockquote>Exceptional Customer Service: From the first inquiry to the end of the journey, you prioritize attentive, friendly,
+                        and seamless customer service to create a stress-free and enjoyable experience.</blockquote>
+                     <blockquote>Best Quality and Safety: You meticulously plan and vet every aspect of the tour, from accommodations to transportation,
+                        ensuring high standards of safety, comfort, and reliability.</blockquote>
+                     	<blockquote>Sustainability and Community Support: By promoting eco-friendly practices and collaborating with local communities, 
+                        our company fosters responsible tourism that benefits the environment and local economies.</blockquote>
+                  </div>
+               </div>
+            </div>
+            {% comment %} <div class="client-wrap client-slider">
+         
+            </div> {% endcomment %}
+         </div>
+      </div>
+      <!-- client html end -->
+      <!-- callback section html start -->
+      <section class="bg-img-callback" style="background-image: url({% static 'home/assets/images/clients/mountains.jpg' %});">
+         <div class="container">
+            <div class="row align-items-center justify-content-between">
+               <div class="col-lg-9 col-md-8">
+                  <div class="callback-content">
+                     <h2>Join Us for Updates and Inspiration</h2>
+                     <p>Stay connected with Asher Safaris for the latest updates, travel tips, and stories from Rwanda’s hidden gems. Be the first to know about exclusive tours and events. Sign up now and let the adventure come to you!
+                     </p>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-md-4">
+                  <div class="button-wrap">
+                     <a href="#" class="button-secondary">Join Us</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- callback html end -->
+   </section>
+   <!-- about html end -->
+</main>
+   
+{% endblock main_content %}

@@ -1,0 +1,20 @@
+{% extends 'base-auth.html' %}
+{% load static %}
+{% block auth_content %}
+<form class="login-from" method="post">
+    {% csrf_token %}
+    <h1 class="site-title">
+        <a href="#">
+            <img src="{% static 'home/assets/images/asha-logo.png' %}" alt="">
+        </a>
+    </h1>
+    <div class="form-group">
+        <label for="first_name1">email</label>
+        <input type="text" class="validate">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="button-primary" style="width: 100%;border: none;">Login</button>
+    </div>
+    <a href="{% url 'authentication:login' %}" class="for-pass">Login</a>
+</form>
+{% endblock auth_content %}
