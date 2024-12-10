@@ -165,7 +165,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [  
     os.path.join(BASE_DIR, 'Asher_tour/static'),
 ]
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Media files settings
 MEDIA_URL = '/media/'  # The URL that will serve media files (e.g., uploaded images)
