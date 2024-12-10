@@ -104,8 +104,10 @@
                            <li class="menu-item">
                               <a href="{% url 'Home:service' %}">Service</a>
                            </li>
-                           <li class="menu-item">
-                              <a href="{% url 'authentication:login' %}">login</a>
+                           {% comment %} <li class="menu-item">console.log("Page Loaded Successfully");
+console.log("Header Loaded Successfully");
+console.log("Footer Loaded Successfully");
+                              <a href="{% url 'authentication:login' %}">login</a> {% endcomment %}
                            </li>
                         </ul>
                      </nav>
@@ -218,7 +220,7 @@
                         </div>
                      </div>
                      <div class="col-md-5">
-                        <div class="copy-right text-right"> Copyright &copy; {% now "Y" %} Travele. All rights reserveds.</div>
+                        <div class="copy-right text-right"> Copyright &copy; {% now "Y" %} Asher Safaris. All rights reserveds.</div>
                      </div>
                   </div>
                </div>
