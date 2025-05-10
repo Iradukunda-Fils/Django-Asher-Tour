@@ -35,6 +35,12 @@ DEBUG = os.getenv('DEBUG')
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 ALLOWED_HOSTS = [host for host in ALLOWED_HOSTS if host]
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8080",
+    "https://localhost:8080",   
+]
+
+
 
 # Application definition
 
@@ -50,6 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.humanize',
     'django.contrib.staticfiles',
     
     #Forms
@@ -57,8 +64,6 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "phonenumber_field",
     'compressor',
-    'django_sass',
-    'django_libsass'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -123,6 +128,18 @@ WSGI_APPLICATION = 'Asher_tour.wsgi.application'
 #         'PORT': os.getenv('DB_PORT'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.environ.get('POSTGRES_DB'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRESQL_HOST', 'db'),
+        'PORT': os.environ.get('POSTGRESQL_PORT', '5432'),
+    }
+}
+
 
 
 
@@ -220,5 +237,8 @@ COMPRESS_ENABLED = True
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
+ADS = True
 
+# #INGNIX CONF
+# client_max_body_size 40G;
 

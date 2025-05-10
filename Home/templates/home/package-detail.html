@@ -1,3 +1,7 @@
+
+{% load static %}
+
+{% load humanize %}
 <!doctype html>
 <html lang="en">
    <head>
@@ -6,34 +10,34 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
       <!-- favicon -->
-      <link rel="icon" type="image/png" href="assets/images/favicon.png">
+      <link rel="icon" type="image/png" href="{% static 'home/assets/images/asha-logo.png' %}">
       <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css" media="all">
+      <link rel="stylesheet" href="{% static 'home/assets/vendors/bootstrap/css/bootstrap.min.css' %}" media="all">
       <!-- Fonts Awesome CSS -->
-      <link rel="stylesheet" type="text/css" href="assets/vendors/fontawesome/css/all.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'home/assets/vendors/fontawesome/css/all.min.css' %}">
       <!-- jquery-ui css -->
-      <link rel="stylesheet" type="text/css" href="assets/vendors/jquery-ui/jquery-ui.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'home/assets/vendors/jquery-ui/jquery-ui.min.css' %}">
       <!-- modal video css -->
-      <link rel="stylesheet" type="text/css" href="assets/vendors/modal-video/modal-video.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'home/assets/vendors/modal-video/modal-video.min.css' %}">
       <!-- light box css -->
-      <link rel="stylesheet" type="text/css" href="assets/vendors/lightbox/dist/css/lightbox.min.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'home/assets/vendors/lightbox/dist/css/lightbox.min.css' %}">
       <!-- slick slider css -->
-      <link rel="stylesheet" type="text/css" href="assets/vendors/slick/slick.css">
-      <link rel="stylesheet" type="text/css" href="assets/vendors/slick/slick-theme.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'home/assets/vendors/slick/slick.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'home/assets/vendors/slick/slick-theme.css' %}">
       <!-- google fonts -->
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
       <!-- Custom CSS -->
-      <link rel="stylesheet" type="text/css" href="style.css">
-      <title>Travele | Travel & Tour HTML5 template </title>
+      <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+      <title>Asher Safaris | Package {{package.slug}} </title>
    </head>
    <body>
       <div id="siteLoader" class="site-loader">
          <div class="preloader-content">
-            <img src="assets/images/loader1.gif" alt="">
+            <img src="{% static 'home/assets/images/loader1.gif' %}" alt="">
          </div>
       </div>
       <div id="page" class="full-page">
-         <header id="masthead" class="site-header header-primary">
+         {% comment %} <header id="masthead" class="site-header header-primary">
             <!-- header html start -->
             <div class="top-header">
                <div class="container">
@@ -254,11 +258,94 @@
                </div>
             </div>
             <div class="mobile-menu-container"></div>
+         </header> {% endcomment %}
+         
+
+         <header id="masthead" class="site-header header-primary">
+            <!-- header html start -->
+            <div class="top-header">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-lg-8 d-none d-lg-block">
+                        <div class="header-contact-info">
+                           <ul>
+                              <li>
+                                 <a href="https://wa.me/250790888823" target="_blank"><i class="fas fa-phone-alt"></i> +250 790888823</a>
+                              </li>
+                              <li>
+                                 <a href="mailto:info@Travel.com"><i class="fas fa-envelope"></i> ashersafarisrwanda@gmail.com</a>
+                              </li>
+                              <li><a href="https://www.google.com/maps?q=Rusizi,+Rwanda,+Kamembe" target="_blank">
+                                 <i class="fas fa-map-marker-alt"></i> Rusizi, Rwanda, Kamembe
+                              </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-lg-4 d-flex justify-content-lg-end justify-content-between">
+                        <div class="header-social social-links">
+                           <ul>
+                              <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                              <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                              <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                              <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                           </ul>
+                        </div>
+                        {% comment %} <div class="header-search-icon">
+                           <button class="search-icon">
+                              <i class="fas fa-search"></i>
+                           </button>
+                        </div> {% endcomment %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="bottom-header">
+               <div class="container d-flex justify-content-between align-items-center">
+                  <div class="site-identity">
+                     <h1 class="site-title">
+                           <img class="white-logo" src="{% static 'home/assets/images/asha-logo.png' %}" alt="logo">
+                           <img class="black-logo" src="{% static 'home/assets/images/asha-logo.png' %}" alt="logo">
+                     </h1>
+                  </div>
+                  <div class="main-navigation d-none d-lg-block">
+                     <nav id="navigation" class="navigation">
+                        <ul>
+                           <li class="menu-item">
+                              <a href="{% url 'Home:home' %}">Home</a>
+                           </li>
+                           <li class="menu-item">
+                              <a href="{% url 'Home:about' %}">About</a>
+                           </li>
+                           <li class="menu-item">
+                              <a href="{% url 'Home:service' %}">Service</a>
+                           </li>
+                           <li class="menu-item">
+                              <a href="{% url 'Home:tour-packages' %}">Packages</a>
+                           </li>
+                           <li class="menu-item">
+                              <a href="{% url 'Home:package-offers' %}">Offers</a>
+                           </li>
+                           {% comment %} <li class="menu-item">console.log("Page Loaded Successfully");
+
+
+                              <a href="{% url 'authentication:login' %}">login</a> {% endcomment %}
+                           </li>
+                        </ul>
+                     </nav>
+                  </div>
+                  {% comment %} <div class="header-btn">
+                     <a href="#" class="button-primary">BOOK NOW</a>
+                  </div> {% endcomment %}
+               </div>
+            </div>
+            <div class="mobile-menu-container"></div>
          </header>
+
          <main id="content" class="site-main">
             <!-- Inner Banner html start-->
             <section class="inner-banner-wrap">
-               <div class="inner-baner-container" style="background-image: url(assets/images/inner-banner.jpg);">
+               <div class="inner-baner-container" style="background-image: url({{ package.image.url }});">
                   <div class="container">
                      <div class="inner-banner-content">
                         <h1 class="inner-title">Package Detail</h1>
@@ -273,22 +360,24 @@
                   <div class="row">
                      <div class="col-lg-8">
                         <div class="single-tour-inner">
-                           <h2>EXPERIENCE THE NATURAL BEAUTY OF ISLAND</h2>
+                           <h2>{{ package.title }}</h2>
                            <figure class="feature-image">
-                              <img src="assets/images/img27.jpg" alt="">
+                              <img src="{{package.image.url}}" alt="">
                               <div class="package-meta text-center">
                                  <ul>
-                                    <li>
-                                       <i class="far fa-clock"></i>
-                                       6 days / 5 night
-                                    </li>
+                                    {% if package.itineraries.count > 0 %}
+                                       <li>
+                                          <i class="far fa-clock"></i>
+                                          {{ package.itineraries.count }}D/{{package.itineraries.count|add:"-1"}}N
+                                       </li>
+                                    {% endif %}
                                     <li>
                                        <i class="fas fa-user-friends"></i>
-                                       People: 4
+                                       {{package.group_size}}
                                     </li>
                                     <li>
                                        <i class="fas fa-map-marked-alt"></i>
-                                       Norway
+                                       {{package.location.name}}
                                     </li>
                                  </ul>
                               </div>
@@ -296,10 +385,10 @@
                            <div class="tab-container">
                               <ul class="nav nav-tabs" id="myTab" role="tablist">
                                  <li class="nav-item">
-                                    <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">DESCRIPTION</a>
+                                    <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">DESTINATIONS</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" id="program-tab" data-toggle="tab" href="#program" role="tab" aria-controls="program" aria-selected="false">PROGRAM</a>
+                                    <a class="nav-link" id="program-tab" data-toggle="tab" href="#program" role="tab" aria-controls="program" aria-selected="false">Itinerary</a>
                                  </li>
                                  <li class="nav-item">
                                     <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">REVIEW</a>
@@ -310,168 +399,375 @@
                               </ul>
                               <div class="tab-content" id="myTabContent">
                                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-                                    <div class="overview-content">
-                                       <p>Occaecat pariatur! Quaerat ligula, ab, consequuntur orci mus ultricies praesent aute blandit beatae nisl aut, totam mauris rhoncus? Tellus netus fringilla class auctor dui. Dolores excepteur, doloribus, blanditiis aliquip nisl. Occaecat iusto? Provident sociis rerum. Amet, asperiores molestie varius eos! Libero, fermentum fermentum totam! Sunt praesentium, totam. Excepteur platea nisl. Convallis aliquam? Iaculis erat ipsa molestie, quod, vestibulum reiciendis, maxime nostra, integer unde officiis quo integer unde officiis quo.</p>
-                                       <p>Occaecat pariatur! Quaerat ligula, ab, consequuntur orci mus ultricies praesent aute blandit beatae nisl aut, totam mauris rhoncus? Tellus netus fringilla class auctor dui. Dolores excepteur, doloribus, blanditiis aliquip nisl..</p>
-                                       <ul>
+                                    <div class="overview-content">   
+                                       <ul class="list-group">
+                                          {% for dest in package.destination %}
+                                          <li class="list-group-item">
+                                              <div class="d-flex align-items-start">
+                                                  <!-- Image Section -->
+                                                  <div class="me-3">
+                                                      <figure class="comment-thumb mb-0">
+                                                          <img src="{{ dest.image.url }}" alt="{{ dest.name }}" class="img-fluid rounded" style="width: 500px; height: 100px; object-fit: cover; border-radius: 50px;">
+                                                      </figure>
+                                                  </div>
+                                                  
+                                                  <!-- Content Section -->
+                                                  <div class="flex-grow-1 pr-1 p-3">
+                                                   <h4 class="fw-bold text-success mb-1">{{ dest.name }}</h4>
+                                                   <h5 class="text-secondary mb-2">{{ dest.location }}</h5>
+                                                   <p class="mb-0">{{ dest.description }}</p>
+                                               </div>
+                                               
+                                              </div>
+                                          </li>
+                                          {% endfor %}
+                                      </ul>
+                                       
+                                       {% comment %} <ul>
                                          <li>- Travel cancellation insurance</li> 
                                          <li>- Breakfast and dinner included</li>
                                          <li>- Health care included</li>
                                          <li>- Transfer to the airport and return to the agency</li>
                                          <li>- Lorem ipsum dolor sit amet, consectetur adipiscing</li>
-                                       </ul>
+                                       </ul> {% endcomment %}
                                     </div>
                                  </div>
                                  <div class="tab-pane" id="program" role="tabpanel" aria-labelledby="program-tab">
                                     <div class="itinerary-content">
-                                       <h3>Program <span>( 4 days )</span></h3>
-                                       <p>Dolores maiores dicta dolore. Natoque placeat libero sunt sagittis debitis? Egestas non non qui quos, semper aperiam lacinia eum nam! Pede beatae. Soluta, convallis irure accusamus voluptatum ornare saepe cupidatat.</p>
+                                       {% if package.schedule.count > 1 %}
+                                       <h3>Program <span>( {{ package.schedule.count }} days )</span></h3>
+                                       {% else %}
+                                       <h3>Program <span>( {{ package.schedule.count }} day )</span></h3>
+                                       {% endif %}
                                     </div>
+                                    
+                                    <p>{{ package.description }}</p>
                                     <div class="itinerary-timeline-wrap">
                                        <ul>
+                                          
+                                          {% for itin in package.schedule %}
                                           <li>
                                              <div class="timeline-content">
-                                                <div class="day-count">Day <span>1</span></div>
-                                                <h4>Ancient Rome Visit</h4>
-                                                <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
+                                                <div class="day-count"><span>{{ itin.day_number| ordinal }}</span>Day</div>
+                                                <h4>{{ itin.title }}</h4>
+                                                <p>{{ itin.description }}</p>
                                              </div>
                                           </li>
-                                          <li>
-                                             <div class="timeline-content">
-                                                <div class="day-count">Day <span>2</span></div>
-                                                <h4>Classic Rome Sightseeing</h4>
-                                                <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                             </div>
-                                          </li>
-                                          <li>
-                                             <div class="timeline-content">
-                                                <div class="day-count">Day <span>3</span></div>
-                                                <h4>Vatican City Visit</h4>
-                                                <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                             </div>
-                                          </li>
-                                          <li>
-                                             <div class="timeline-content">
-                                                <div class="day-count">Day <span>4</span></div>
-                                                <h4>Italian Food Tour</h4>
-                                                <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                                             </div>
-                                          </li>
+                                          {% endfor %}
+                                          
                                        </ul>
                                     </div>
                                  </div>
                                  <div class="tab-pane" id="review" role="tabpanel" aria-labelledby="review-tab">
                                     <div class="summary-review">
                                        <div class="review-score">
-                                          <span>4.9</span>
+                                          <span>{{package.rating | floatformat:1}}</span>
                                        </div>
                                        <div class="review-score-content">
                                           <h3>
                                              Excellent
-                                             <span>( Based on 24 reviews )</span>
+                                             {% if package.reviews.count <= 0 or package.reviews.count == 1 %}
+                                                <span>( Based on {{ package.reviews.count }} review )</span>
+                                             {% else %}
+                                                <span>( Based on {{ package.reviews.count }} reviews )</span>
+                                             {% endif %}
                                           </h3>
-                                          <p>Tincidunt iaculis pede mus lobortis hendrerit eveniet impedit aenean mauris qui, pharetra rem doloremque laboris euismod deserunt non, cupiditate, vestibulum.</p>
+                                          <p>{{ package.description }}</p>
                                        </div>
                                     </div>
-                                    <!-- review comment html -->
+
+
+
+
+
+                                        <style>
+                                            .rating-stars {
+                                                color: #ddd;
+                                                font-size: 20px;
+                                                cursor: pointer;
+                                            }
+                                            .rating-stars .star {
+                                                display: inline-block;
+                                                margin-right: 2px;
+                                            }
+                                            .rating-stars .star.active {
+                                                color:rgb(66, 66, 66);
+                                            }
+                                            .reply-form {
+                                                display: none;
+                                                margin: 10px 0 10px 50px;
+                                                padding: 15px;
+                                                background: #f9f9f9;
+                                                border-radius: 4px;
+                                            }
+                                            .reply-form textarea {
+                                                width: 100%;
+                                                margin-bottom: 10px;
+                                            }
+                                        </style>
                                     <div class="comment-area">
-                                       <h3 class="comment-title">3 Reviews</h3>
-                                       <div class="comment-area-inner">
-                                          <ol>
-                                             <li>
-                                                <figure class="comment-thumb">
-                                                   <img src="assets/images/img20.jpg" alt="">
-                                                </figure>
-                                                <div class="comment-content">
-                                                   <div class="comment-header">
-                                                      <h5 class="author-name">Tom Sawyer</h5>
-                                                      <span class="post-on">Jana 10 2020</span>
-                                                      <div class="rating-wrap">
-                                                         <div class="rating-start" title="Rated 5 out of 5">
-                                                            <span style="width: 90%;"></span>
-                                                         </div>
-                                                      </div>
-                                                   </div>
-                                                   <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                                   <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                                </div>
-                                             </li>
-                                             <li>
-                                                <ol>
-                                                   <li>
+                                        <h3 class="comment-title">{{ package.review.count }} Reviews</h3>
+                                        <div class="comment-area-inner">
+                                            <ol>
+                                                {% for review in package.review %}
+                                                    {% if not review.replay %}
+                                                    <li>
                                                       <figure class="comment-thumb">
-                                                         <img src="assets/images/img21.jpg" alt="">
-                                                      </figure>
-                                                      <div class="comment-content">
-                                                         <div class="comment-header">
-                                                            <h5 class="author-name">John Doe</h5>
-                                                            <span class="post-on">Jana 10 2020</span>
-                                                            <div class="rating-wrap">
-                                                               <div class="rating-start" title="Rated 5 out of 5">
-                                                                  <span style="width: 90%"></span>
-                                                               </div>
+                                                         <img src="{% if review.customer.picture %}{{ review.customer.picture.url }}{% else %}{% static 'user-img.png' %}{% endif %}" 
+                                                              alt="{{ review.customer.first_name }} {{ review.customer.last_name }}">
+                                                     </figure>
+                                                     
+                                                        <div class="comment-content">
+                                                            <div class="comment-header">
+                                                                <h5 class="author-name">{{ review.customer.first_name }} {{ review.customer.last_name }}</h5>
+                                                                <span class="post-on">{{ review.created_at| timesince }}</span>
+                                                                <div class="rating-wrap">
+                                                                    <!-- Display rating - uses percentage from backend -->
+                                                                    <div class="rating-stars display-only" data-rating="{{ review.ratings }}">
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                         </div>
-                                                         <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                                         <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
-                                                      </div>
-                                                   </li>
-                                                </ol>
-                                             </li>
-                                          </ol>
-                                          <ol>
-                                             <li>
-                                                <figure class="comment-thumb">
-                                                   <img src="assets/images/img22.jpg" alt="">
-                                                </figure>
-                                                <div class="comment-content">
-                                                   <div class="comment-header">
-                                                      <h5 class="author-name">Jaan Smith</h5>
-                                                      <span class="post-on">Jana 10 2020</span>
-                                                      <div class="rating-wrap">
-                                                         <div class="rating-start" title="Rated 5 out of 5">
-                                                            <span></span>
-                                                         </div>
-                                                      </div>
-                                                   </div>
-                                                   <p>Officia amet posuere voluptates, mollit montes eaque accusamus laboriosam quisque cupidatat dolor pariatur, pariatur auctor.</p>
-                                                   <a href="#" class="reply"><i class="fas fa-reply"></i>Reply</a>
+                                                            <p>{{ review.comment }}</p>
+                                                            <a href="#" class="reply-link" data-review-id="{{ review.id }}">
+                                                                <i class="fas fa-reply"></i>Reply
+                                                            </a>
+                                                            
+                                                            <!-- Reply form -->
+                                                            <div class="reply-form" id="reply-form-{{ review.id }}">
+                                                                <form method="POST" action="{% url 'Home:package-detail' package.slug package.pk %}" class="reply-form-content">
+                                                                  {% csrf_token %}
+                                                                    <input type="hidden" name="review_id" value="{{ review.id }}">
+                                                                    <input type="hidden" name="rating" value="0">
+                                                                    <!-- Input rating - will submit 1-5 -->
+                                                                    <div class="rating-stars input-rating" data-rating="0">
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                        <span class="star">★</span>
+                                                                    </div>
+                                                                    <textarea name="reply_text" rows="4" placeholder="Write your reply..."></textarea>
+                                                                    <button type="submit" class="btn btn-success" style="border-radius: 10px;">Submit Reply</button>
+                                                                </form>
+                                                            </div>
+                                    
+                                                            <!-- Replies -->
+                                                            {% if review.replies.exists %}
+                                                                <ol class="replies">
+                                                                    <br>
+                                                                    {% for reply in review.replies.all %}
+                                                                        <li>
+                                                                            <figure class="comment-thumb">
+                                                                              <img src="{% if review.customer.picture %}{{ review.customer.picture.url }}{% else %}{% static 'user-img.png' %}{% endif %}" 
+                                                                                   alt="{{ review.customer.first_name }} {{ review.customer.last_name }}">
+                                                                          </figure>
+                                                                          
+                                                                            <div class="comment-content">
+                                                                                <div class="comment-header">
+                                                                                    <h5 class="author-name">{{ reply.customer.first_name }} {{ reply.customer.last_name }}</h5>
+                                                                                    <span class="post-on">{{ reply.created_at| timesince }}</span>
+                                                                                    <div class="rating-wrap">
+                                                                                        <!-- Display rating - uses percentage from backend -->
+                                                                                        <div class="rating-stars display-only" data-rating="{{ reply.ratings }}">
+                                                                                            <span class="star">★</span>
+                                                                                            <span class="star">★</span>
+                                                                                            <span class="star">★</span>
+                                                                                            <span class="star">★</span>
+                                                                                            <span class="star">★</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p>{{ reply.comment }}</p>
+                                                                            </div>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ol>
+                                                            {% endif %}
+                                                        </div>
+                                                    </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ol>
+                                        </div>
+                                        <div class="comment-form-wrap">
+                                            <h3 class="comment-title">Leave a Review</h3>
+                                            <form class="comment-form" method="POST" action="{% url 'Home:package-detail' package.slug package.pk %}">
+                                                <div class="full-width rate-wrap">
+                                                    <label>Your rating</label>
+                                                    <!-- Input rating - will submit 1-5 -->
+                                                    <div class="rating-stars input-rating" data-rating="0">
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                        <span class="star">★</span>
+                                                    </div>
+                                                    <input type="hidden" name="rating" value="0">
                                                 </div>
-                                             </li>
-                                          </ol>
-                                       </div>
-                                       <div class="comment-form-wrap">
-                                          <h3 class="comment-title">Leave a Review</h3>
-                                          <form class="comment-form">
-                                             <div class="full-width rate-wrap">
-                                                <label>Your rating</label>
-                                                <div class="procduct-rate">
-                                                   <span></span>
-                                                </div>
-                                             </div>
-                                             <p>
-                                                <input type="text" name="name" placeholder="Name">
-                                             </p>
-                                             <p>
-                                                <input type="text" name="name" placeholder="Last name">
-                                             </p>
-                                             <p>
-                                                <input type="email" name="email" placeholder="Email">
-                                             </p>
-                                             <p>
-                                                <input type="text" name="subject" placeholder="Subject">
-                                             </p>
-                                             <p>
-                                                <textarea rows="6" placeholder="Your review"></textarea>
-                                             </p>
-                                             <p>
-                                                <input type="submit" name="submit" value="Submit">
-                                             </p>
-                                          </form>
-                                       </div>
+                                                <p>
+                                                    <textarea name="review_text" rows="6" placeholder="Your review"></textarea>
+                                                </p>
+                                                <p>
+                                                    <input type="submit" name="submit" value="Submit" class="btn btn-success" style="border-radius: 10px;">
+                                                </p>
+                                            </form>
+                                        </div>
                                     </div>
                                  </div>
-                                 <div class="tab-pane" id="map" role="tabpanel" aria-labelledby="map-tab">
+                                    
+                                    <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        // Initialize existing ratings (display only)
+                                        document.querySelectorAll('.rating-stars.display-only').forEach(function(ratingDiv) {
+                                            const percentageRating = parseInt(ratingDiv.dataset.rating);
+                                            updateStarsFromPercentage(ratingDiv, percentageRating);
+                                        });
+                                    
+                                        // Handle reply link clicks
+                                        document.querySelectorAll('.reply-link').forEach(function(link) {
+                                            link.addEventListener('click', function(e) {
+                                                e.preventDefault();
+                                                const reviewId = this.dataset.reviewId;
+                                                const replyForm = document.getElementById(`reply-form-${reviewId}`);
+                                                
+                                                if (replyForm.style.display === 'block') {
+                                                    replyForm.style.display = 'none';
+                                                } else {
+                                                    document.querySelectorAll('.reply-form').forEach(form => {
+                                                        form.style.display = 'none';
+                                                    });
+                                                    replyForm.style.display = 'block';
+                                                }
+                                            });
+                                        });
+                                    
+                                        // Handle input rating selection
+                                        document.querySelectorAll('.rating-stars.input-rating').forEach(function(ratingDiv) {
+                                            const stars = ratingDiv.querySelectorAll('.star');
+                                            const ratingInput = ratingDiv.closest('form').querySelector('input[name="rating"]');
+                                    
+                                            stars.forEach(function(star, index) {
+                                                // Hover effect
+                                                star.addEventListener('mouseover', function() {
+                                                    updateStars(ratingDiv, index + 1);
+                                                });
+                                    
+                                                // Click to set rating
+                                                star.addEventListener('click', function() {
+                                                    const starRating = index + 1; // 1-5 rating
+                                                    ratingDiv.dataset.rating = starRating;
+                                                    if (ratingInput) {
+                                                        ratingInput.value = starRating; // Submit 1-5 rating
+                                                    }
+                                                });
+                                            });
+                                    
+                                            // Reset stars on mouse out
+                                            ratingDiv.addEventListener('mouseout', function() {
+                                                const currentRating = parseInt(ratingDiv.dataset.rating) || 0;
+                                                updateStars(ratingDiv, currentRating);
+                                            });
+                                        });
+                                    
+                                        // Form validation and submission
+                                        document.querySelectorAll('form').forEach(function(form) {
+                                          form.addEventListener('submit', function(e) {
+                                              e.preventDefault();
+                                              
+                                              const ratingInput = form.querySelector('input[name="rating"]');
+                                              const rating = parseInt(ratingInput.value);
+                                              
+                                              // Validate rating is between 1-5
+                                              if (rating < 1 || rating > 5) {
+                                                  alert('Please select a rating between 1 and 5 stars');
+                                                  return;
+                                              }
+                                      
+                                              const formData = new FormData(form);
+                                              fetch(form.action, {
+                                                  method: 'POST',
+                                                  body: formData,
+                                                  headers: {
+                                                      'X-CSRFToken': getCookie('csrftoken')
+                                                  }
+                                              })
+                                              .then(response => response.json())  // Parse response as JSON
+                                              .then(data => {
+                                                  if (data.success) {
+                                                      window.location.reload();
+                                                  } else {
+                                                      alert(data.message);  // Display error message from server
+                                                  }
+                                              })
+                                              .catch(error => {
+                                                  console.error('Error:', error);
+                                                  alert(`Error submitting form. Please try again.${error}`);
+                                              });
+                                          });
+                                      });
+                                      
+                                    });
+                                    
+                                    // Helper function to update stars for input rating (1-5)
+                                    function updateStars(ratingDiv, rating) {
+                                        const stars = ratingDiv.querySelectorAll('.star');
+                                        stars.forEach(function(star, index) {
+                                            if (index < rating) {
+                                                star.classList.add('active');
+                                            } else {
+                                                star.classList.remove('active');
+                                            }
+                                        });
+                                    }
+                                    
+                                    // Helper function to update stars based on percentage (for display)
+                                    function updateStarsFromPercentage(ratingDiv, percentage) {
+                                        const stars = ratingDiv.querySelectorAll('.star');
+                                        const numStars = (percentage / 20); // Convert percentage to star count
+                                        stars.forEach(function(star, index) {
+                                            if (index < numStars) {
+                                                star.classList.add('active');
+                                            } else {
+                                                star.classList.remove('active');
+                                            }
+                                        });
+                                    }
+                                    
+                                    // Helper function to get CSRF token
+                                    function getCookie(name) {
+                                        let cookieValue = null;
+                                        if (document.cookie && document.cookie !== '') {
+                                            const cookies = document.cookie.split(';');
+                                            for (let i = 0; i < cookies.length; i++) {
+                                                const cookie = cookies[i].trim();
+                                                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        return cookieValue;
+                                    }
+                                    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <div class="tab-pane" id="map" role="tabpanel" aria-labelledby="map-tab">
                                     <div class="map-area">
                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60998820.06503915!2d95.3386452160086!3d-21.069765827214972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2bfd076787c5df%3A0x538267a1955b1352!2sAustralia!5e0!3m2!1sen!2snp!4v1579777829477!5m2!1sen!2snp" height="450" allowfullscreen=""></iframe>
                                     </div>
@@ -480,27 +776,16 @@
                            </div>
                            <div class="single-tour-gallery">
                               <h3>GALLERY / PHOTOS</h3>
-                              <div class="single-tour-slider">
-                                 <div class="single-tour-item">
-                                    <figure class="feature-image">
-                                       <img src="assets/images/img28.jpg" alt="">
-                                    </figure>
-                                 </div>
-                                 <div class="single-tour-item">
-                                    <figure class="feature-image">
-                                       <img src="assets/images/img29.jpg" alt="">
-                                    </figure>
-                                 </div>
-                                 <div class="single-tour-item">
-                                    <figure class="feature-image">
-                                       <img src="assets/images/img32.jpg" alt="">
-                                    </figure>
-                                 </div>
-                                 <div class="single-tour-item">
-                                    <figure class="feature-image">
-                                       <img src="assets/images/img33.jpg" alt="">
-                                    </figure>
-                                 </div>
+                              <div class="single-tour-slider" style="gap: -1px;">
+                                 {% for image in package.media.all %}
+                                    <div class="single-tour-item">
+                                        <figure class="feature-image">
+                                            <img src="{{ image.images.url }}" alt="Image for {{ package.title }}">
+                                        </figure>
+                                    </div>
+                                    {% empty %}
+                                    <h3 style="color: #4caf50;">No images Available yet..! </h3>
+                                    {% endfor %}
                               </div>
                            </div>
                         </div>
@@ -509,15 +794,15 @@
                         <div class="sidebar">
                            <div class="package-price">
                               <h5 class="price">
-                                 <span>$649</span> / per person
+                                 <span>$ {{ package.price |intcomma  }}</span> / per person
                               </h5>
                               <div class="start-wrap">
                                  <div class="rating-start" title="Rated 5 out of 5">
-                                    <span style="width: 60%"></span>
+                                    <span style="width: {{package.rating}}%"></span>
                                  </div>
                               </div>
                            </div>
-                           <div class="widget-bg booking-form-wrap">
+                           {% comment %} <div class="widget-bg booking-form-wrap">
                               <h4 class="bg-title">Booking</h4>
                               <form class="booking-form">
                                  <div class="row">
@@ -587,31 +872,65 @@
                                     </div>
                                  </div>
                               </form>
-                           </div>
+                           </div> {% endcomment %}
                            <div class="widget-bg information-content text-center">
-                              <h5>TRAVEL TIPS</h5>
-                              <h3>NEED TRAVEL RELATED TIPS & INFORMATION</h3>
-                              <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. </p>
-                              <a href="#" class="button-primary">GET A QUOTE</a>
+                              <h5>PACKAGE BASICS</h5>
+                              <h3>PACKAGE RELATED OFFER & INFORMATION</h3>
+                              <ul class="list-group">
+                                 <li class="list-group-item">
+                                     <strong>{{ package.title }}</strong> 
+                                 </li>
+                                 <li class="list-group-item">
+                                     <strong>Category:</strong> {{ package.category.name }}
+                                 </li>
+                                 <li class="list-group-item">
+                                     <strong>Group Size:</strong> {{ package.group_size }}
+                                 </li>
+                                 <li class="list-group-item">
+                                    <strong>Price:</strong> {{ package.price | intcomma }}
+                                </li>
+                                <li class="list-group-item">
+                                 <strong>Total Price:</strong> {{ total_price | intcomma }}
+                                </li>
+                                 {% if package.offers %}
+                                     <li class="list-group-item">
+                                         <strong>Discount:</strong> ${{ package.offers.discount_price|intcomma }}
+                                     </li>
+                                     <li class="list-group-item">
+                                         <strong>Percentage:</strong> {{ package.offers.discount_percentage }}%.
+                                     </li>
+                                 {% endif %}
+                                 {% if package.deadline and not package.deadline < now %}
+                                     <li class="list-group-item text-success">
+                                         <span class="badge bg-success">Active</span> 
+                                         package is active in {{ package.deadline|timeuntil }}.
+                                     </li>
+                                 {% else %}
+                                     <li class="list-group-item text-danger">
+                                         <span class="badge bg-danger">Expired</span>
+                                     </li>
+                                 {% endif %}
+                                 
+                             </ul>
+                             
+                              {% comment %} <a href="#" class="button-primary">GET A QUOTE</a> {% endcomment %}
                            </div>
-                           <div class="travel-package-content text-center" style="background-image: url(assets/images/img11.jpg);">
+                           <div class="travel-package-content text-center" style="background-image: url({{ package.image.url }});">
                               <h5>MORE PACKAGES</h5>
-                              <h3>OTHER TRAVEL PACKAGES</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus.</p>
-                              <ul>
-                                 <li>
-                                    <a href="#"><i class="far fa-arrow-alt-circle-right"></i>Vacation packages</a>
-                                 </li>
-                                 <li>
-                                    <a href="#"><i class="far fa-arrow-alt-circle-right"></i>Honeymoon packages</a>
-                                 </li>
-                                 <li>
-                                    <a href="#"><i class="far fa-arrow-alt-circle-right"></i>New year packages</a>
-                                 </li>
-                                 <li>
-                                    <a href="#"><i class="far fa-arrow-alt-circle-right"></i>Weekend packages</a>
-                                 </li>
-                              </ul>
+                                <h3>OTHER Asher Safaris Packages</h3>
+                                
+                                {% if categories %}
+                                <ul>
+                                    {% for category in categories %}
+                                    <li>
+                                        <a href="{% url 'Home:tour-packages' %}?{{ category.category_url }}"><i class="far fa-arrow-alt-circle-right"></i>{{ category.name }} 
+                                        ({% if category.package_count > 1 %}{{ category.package_count }}{% else %}1{% endif %})</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% else %}
+                                <h3>No available tour packages</h3>
+                                {% endif %}
                            </div>
                         </div>
                      </div>
@@ -619,21 +938,21 @@
                </div>
             </div>
             <!-- subscribe section html start -->
-            <section class="subscribe-section" style="background-image: url(assets/images/img16.jpg);">
+            <section class="subscribe-section" style="background-image: url({% static 'home/assets/images/clients/mountains.jpg' %});">
                <div class="container">
                   <div class="row">
-                     <div class="col-lg-7">
+                     <div class="col-lg-11" style="color: whitesmoke;">
                         <div class="section-heading section-heading-white">
-                           <h5 class="dash-style">HOLIDAY PACKAGE OFFER</h5>
-                           <h2>HOLIDAY SPECIAL 25% OFF !</h2>
-                           <h4>Sign up now to recieve hot special offers and information about the best tour packages, updates and discounts !!</h4>
+                           <h5 class="dash-style"><a href="">{{ adv.tour_package.title }}</a></h5>
+                           <h2 style=" color: whitesmoke;">{{ adv.title }} <span style="float: right; color: whitesmoke;">{{ adv.discount_percentage }}% OFF !</span></h2>
+                           <h4 style="x color: whitesmoke;">Sign up now to recieve hot special offers and information about the best tour packages, updates and discounts !!</h4>
                            <div class="newsletter-form">
                               <form>
                                  <input type="email" name="s" placeholder="Your Email Address">
-                                 <input type="submit" name="signup" value="SIGN UP NOW!">
+                                 <input type="submit" name="signup" value="SIGN UP NOW!" style="border-radius: 10px">
                               </form>
                            </div>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Eaque adipiscing, luctus eleifend temporibus occaecat luctus eleifend tempo ribus.</p>
+                           <p>{{ adv.description }}</p>
                         </div>
                      </div>
                   </div>
@@ -641,7 +960,8 @@
             </section>
             <!-- subscribe html end -->
          </main>
-         <footer id="colophon" class="site-footer footer-primary">
+         
+         {% comment %} <footer id="colophon" class="site-footer footer-primary">
             <div class="top-footer">
                <div class="container">
                   <div class="row">
@@ -762,8 +1082,117 @@
                   </div>
                </div>
             </div>
+         </footer> {% endcomment %}
+
+         <style>
+            .site-footer .top-footer .widget i{
+               color: #69AA60;
+            }
+         </style>
+
+         <footer id="colophon" class="site-footer footer-primary">
+            <div class="top-footer">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-lg-6  col-md-6">
+                        <aside class="widget widget_text">
+                           <h3 class="widget-title">
+                              About Asher Safaris
+                           </h3>
+                           <div class="textwidget widget-text">
+                              At Asher Safaris, we are passionate about delivering sustainable and memorable travel experiences. 
+                              Our mission is to connect travelers with the natural beauty of our world while promoting eco-friendly tourism.
+                           </div>
+                           <div class="award-img">
+                              Join us on a journey that not only enriches your soul but also preserves our planet for future generations.
+                           </div>
+                        </aside>
+                     </div>
+                     <div class="col-lg-6 col-md-6">        
+                        <aside class="widget widget_text">
+                           <h3 class="widget-title">CONTACT INFORMATION</h3>
+                           <div class="textwidget widget-text">
+                              <ul>
+                                 <li>
+                                    <a href="https://wa.me/250790888823" target="_blank">
+                                        <i class="fas fa-phone-alt"></i>
+                                        +250 790888823
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                 <a href="mailto:ashersafarisrwanda@gmail.com">
+                                     <i class="fas fa-envelope"></i>
+                                     ashersafarisrwanda@gmail.com
+                                 </a>
+                             </li>
+                             
+                             <li>
+                              <a href="https://www.google.com/maps?q=Rusizi,+Rwanda,+Kamembe" target="_blank">
+                                  <i class="fas fa-map-marker-alt"></i>
+                                  Rusizi, Rwanda, Kamembe
+                              </a>
+                              </li>
+                          
+                                 <li>
+                                    <i class="fas fa-clock"></i> <!-- Icon for opening -->
+                                    Open at 8:00 AM
+                                </li>
+                                <li>
+                                    <i class="fas fa-door-closed"></i> <!-- Icon for closing -->
+                                    Close at 6:00 PM
+                                </li>
+                              </ul>
+                           </div>
+                        </aside>
+                     </div>
+                     {% comment %} <div class="col-lg-3 col-md-6">
+                        <aside class="widget widget_newslatter">
+                           <h3 class="widget-title">SUBSCRIBE US</h3>
+                           <div class="widget-text">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                           </div>
+                           <form class="newslatter-form">
+                              <input type="email" name="s" placeholder="Your Email..">
+                              <input type="submit" name="s" value="SUBSCRIBE NOW">
+                           </form>
+                        </aside>
+                     </div> {% endcomment %}
+                  </div>
+               </div>
+            </div>
+            <div class="buttom-footer">
+               <div class="container">
+                  <div class="row align-items-center">
+                     <div class="col-md-5">
+                        <div class="footer-menu">
+                           <ul>
+                              <li>
+                                 <a href="#">Privacy Policy</a>
+                              </li>
+                              <li>
+                                 <a href="#">Term & Condition</a>
+                              </li>
+                              <li>
+                                 <a href="#">FAQ</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-2 text-center">
+                        <div class="footer-logo">
+                           <a href="#"><img src="{% static 'home/assets/images/asha-logo.png' %}" alt=""></a>
+                        </div>
+                     </div>
+                     <div class="col-md-5">
+                        <div class="copy-right text-right"> Copyright &copy; {% now "Y" %} Asher Safaris. All rights reserveds.</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </footer>
-         <a id="backTotop" href="#" class="to-top-icon">
+
+         <a id="backTotop" href="#" class="to-top-icon" style="background-color:green">
             <i class="fas fa-chevron-up"></i>
          </a>
          <!-- custom search field html -->
@@ -783,17 +1212,17 @@
       </div>
 
       <!-- JavaScript -->
-      <script src="assets/js/jquery.js"></script>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-      <script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
-      <script src="assets/vendors/jquery-ui/jquery-ui.min.js"></script>
-      <script src="assets/vendors/countdown-date-loop-counter/loopcounter.js"></script>
-      <script src="assets/js/jquery.counterup.js"></script>
-      <script src="assets/vendors/modal-video/jquery-modal-video.min.js"></script>
-      <script src="assets/vendors/masonry/masonry.pkgd.min.js"></script>
-      <script src="assets/vendors/lightbox/dist/js/lightbox.min.js"></script>
-      <script src="assets/vendors/slick/slick.min.js"></script>
-      <script src="assets/js/jquery.slicknav.js"></script>
-      <script src="assets/js/custom.min.js"></script>
+      <script defer src="{% static 'home/assets/js/jquery.js' %}"></script>
+      <script defer src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+      <script defer src="{% static 'home/assets/vendors/bootstrap/js/bootstrap.min.js' %}"></script>
+      <script defer src="{% static 'home/assets/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+      <script defer src="{% static 'home/assets/vendors/countdown-date-loop-counter/loopcounter.js' %}"></script>
+      <script defer src="{% static 'home/assets/js/jquery.counterup.js' %}"></script>
+      <script defer src="{% static 'home/assets/vendors/modal-video/jquery-modal-video.min.js' %}"></script>
+      <script defer src="{% static 'home/assets/vendors/masonry/masonry.pkgd.min.js' %}"></script>
+      <script defer src="{% static 'home/assets/vendors/lightbox/dist/js/lightbox.min.js' %}"></script>
+      <script defer src="{% static 'home/assets/vendors/slick/slick.min.js' %}"></script>
+      <script defer src="{% static 'home/assets/js/jquery.slicknav.js' %}"></script>
+      <script defer src="{% static 'home/assets/js/custom.min.js' %}"></script>
    </body>
 </html>

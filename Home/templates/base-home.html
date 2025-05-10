@@ -19,7 +19,7 @@
       <!-- Bootstrap 5 CDN -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
       <!-- favicon -->
-      <link rel="icon" type="image/png" href="">
+      <link rel="icon" type="image/png" href="{% static 'home/assets/images/asha-logo.png' %}">
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="{% static 'home/assets/vendors/bootstrap/css/bootstrap.min.css' %}" media="all">
       <!-- Fonts Awesome CSS -->
@@ -55,13 +55,14 @@
                         <div class="header-contact-info">
                            <ul>
                               <li>
-                                 <a href="#"><i class="fas fa-phone-alt"></i> +250 790888823</a>
+                                 <a href="https://wa.me/250790888823" target="_blank"><i class="fas fa-phone-alt"></i> +250 790888823</a>
                               </li>
                               <li>
                                  <a href="mailto:info@Travel.com"><i class="fas fa-envelope"></i> ashersafarisrwanda@gmail.com</a>
                               </li>
-                              <li>
+                              <li><a href="https://www.google.com/maps?q=Rusizi,+Rwanda,+Kamembe" target="_blank">
                                  <i class="fas fa-map-marker-alt"></i> Rusizi, Rwanda, Kamembe
+                              </a>
                               </li>
                            </ul>
                         </div>
@@ -103,10 +104,17 @@
                            </li>
                            <li class="menu-item">
                               <a href="{% url 'Home:service' %}">Service</a>
+                              
+                           </li>
+                           <li class="menu-item">
+                              <a href="{% url 'Home:tour-packages' %}">Packages</a>
+                           </li>
+                           <li class="menu-item">
+                              <a href="{% url 'Home:package-offers' %}">Offers</a>
                            </li>
                            {% comment %} <li class="menu-item">console.log("Page Loaded Successfully");
-console.log("Header Loaded Successfully");
-console.log("Footer Loaded Successfully");
+
+
                               <a href="{% url 'authentication:login' %}">login</a> {% endcomment %}
                            </li>
                         </ul>
@@ -127,6 +135,13 @@ console.log("Footer Loaded Successfully");
          <style>
             .site-footer .top-footer .widget i{
                color: #69AA60;
+            }
+
+            .to-top-icon{
+               background-color: #519059;
+            }
+            .to-top-icon:hover{
+               background-color:rgb(60, 97, 56);
             }
          </style>
             
@@ -154,21 +169,26 @@ console.log("Footer Loaded Successfully");
                            <div class="textwidget widget-text">
                               <ul>
                                  <li>
-                                    <a href="#">
-                                       <i class="fas fa-phone-alt" ></i>
-                                       +250 790888823
+                                    <a href="https://wa.me/250790888823" target="_blank">
+                                        <i class="fas fa-phone-alt"></i>
+                                        +250 790888823
                                     </a>
-                                 </li>
-                                 <li>
-                                    <a href="#">
-                                       <i class="fas fa-envelope"></i>
-                                       ashersafarisrwanda@gmail.com
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    Rusizi, Rwanda, Kamembe
-                                 </li>
+                                </li>
+                                
+                                <li>
+                                 <a href="mailto:ashersafarisrwanda@gmail.com">
+                                     <i class="fas fa-envelope"></i>
+                                     ashersafarisrwanda@gmail.com
+                                 </a>
+                             </li>
+                             
+                             <li>
+                              <a href="https://www.google.com/maps?q=Rusizi,+Rwanda,+Kamembe" target="_blank">
+                                  <i class="fas fa-map-marker-alt"></i>
+                                  Rusizi, Rwanda, Kamembe
+                              </a>
+                              </li>
+                          
                                  <li>
                                     <i class="fas fa-clock"></i> <!-- Icon for opening -->
                                     Open at 8:00 AM
@@ -216,7 +236,7 @@ console.log("Footer Loaded Successfully");
                      </div>
                      <div class="col-md-2 text-center">
                         <div class="footer-logo">
-                           <a href="#"><img src="assets/images/travele-logo.png" alt=""></a>
+                           <a href="#"><img src="{% static 'home/assets/images/asha-logo.png' %}" alt=""></a>
                         </div>
                      </div>
                      <div class="col-md-5">
@@ -226,7 +246,7 @@ console.log("Footer Loaded Successfully");
                </div>
             </div>
          </footer>
-         <a id="backTotop" href="#" class="to-top-icon">
+         <a href="https://wa.me/250790888823" target="_blank" id="backTotop" class="to-top-icon" style="background-color:green; align-content: center;">
             <i class="fas fa-chevron-up"></i>
          </a>
          <!-- custom search field html -->
@@ -236,7 +256,7 @@ console.log("Footer Loaded Successfully");
                      <form class="search-form" role="search" method="get" >
                         <input type="text" name="s" placeholder="Enter your text...">
                      </form>
-                     <a href="#" class="search-close">
+                     <a href="" class="search-close">
                         <i class="fas fa-times"></i>
                      </a>
                   </div>
@@ -258,5 +278,9 @@ console.log("Footer Loaded Successfully");
       <script defer src="{% static 'home/assets/vendors/slick/slick.min.js' %}"></script>
       <script defer src="{% static 'home/assets/js/jquery.slicknav.js' %}"></script>
       <script defer src="{% static 'home/assets/js/custom.min.js' %}"></script>
+
    </body>
 </html>
+<script>
+   {% block extra_scripts %}{% endblock extra_scripts %}
+</script>

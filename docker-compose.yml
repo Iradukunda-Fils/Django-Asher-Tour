@@ -1,0 +1,65 @@
+version: "3.9"
+
+services:
+  web:
+    build:
+      context: .
+    command: gunicorn Asher_tour.wsgi:application --bind 0.0.0.0:8000 --workers 3  # Adjust workers for better performance
+    container_name: asher_web  # Changed name format
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/Asher_Media
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - db
+    expose:
+      - "8000"  # Only exposed inside Docker network (not public)
+    networks:
+      - asher_network
+  
+  db:
+    image: postgres:16
+    container_name: postgres-asher  # Changed name format
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports: []  # No public port exposure (internal only)
+    networks:
+      - asher_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER -d $POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    container_name: nginx-asher
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - static_volume:/app/staticfiles
+      - media_volume:/app/Asher_Media
+      - ./logs/nginx:/var/log/nginx
+      - ./logs/gunicorn:/app/logs
+    ports:
+      - "8080:80"
+    depends_on:
+      - web
+    networks:
+      - asher_network
+
+
+
+volumes:
+  static_volume:
+  media_volume:
+  postgres_data:
+
+networks:
+  asher_network:
+    driver: bridge  # Default network type (internal communication only)

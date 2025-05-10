@@ -16,6 +16,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def comment(self):
+        return self.comments.all()
 
     class Meta:
         ordering = ["-created_at"]
@@ -32,6 +35,9 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.user.username} on {self.post.title}"
+    
+    def reply(self):
+        return self.replies.all()
 
     class Meta:
         ordering = ["-created_at"]
