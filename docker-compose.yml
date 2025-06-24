@@ -4,30 +4,29 @@ services:
   web:
     build:
       context: .
-    command: gunicorn Asher_tour.wsgi:application --bind 0.0.0.0:8000 --workers 3  # Adjust workers for better performance
-    container_name: asher_web  # Changed name format
+    image: asher_web_image
+    container_name: asher_web
     volumes:
-      - static_volume:/app/staticfiles
-      - media_volume:/app/Asher_Media
-      - .:/app
+      - asher_static_volume:/app/staticfiles
+      - asher_media_volume:/app/Asher_Media
+      #- .:/app  # Mount source code for development (remove in production)
     env_file:
       - .env
     depends_on:
       - db
     expose:
-      - "8000"  # Only exposed inside Docker network (not public)
+      - "8000"
     networks:
       - asher_network
-  
+
   db:
     image: postgres:16
-    container_name: postgres-asher  # Changed name format
+    container_name: asher_db
     restart: unless-stopped
     env_file:
       - .env
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports: []  # No public port exposure (internal only)
+      - asher_postgres_data:/var/lib/postgresql/data
     networks:
       - asher_network
     healthcheck:
@@ -38,28 +37,26 @@ services:
 
   nginx:
     image: nginx:alpine
+    container_name: asher_nginx
     restart: unless-stopped
-    container_name: nginx-asher
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - static_volume:/app/staticfiles
-      - media_volume:/app/Asher_Media
-      - ./logs/nginx:/var/log/nginx
-      - ./logs/gunicorn:/app/logs
     ports:
       - "8080:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d  # Your nginx config should be named `default.conf`
+      - asher_static_volume:/app/staticfiles
+      - asher_media_volume:/app/Asher_Media
+      - ./logs/nginx:/var/log/nginx
+      - ./logs/gunicorn:/app/logs
     depends_on:
       - web
     networks:
       - asher_network
 
-
-
 volumes:
-  static_volume:
-  media_volume:
-  postgres_data:
+  asher_static_volume:
+  asher_media_volume:
+  asher_postgres_data:
 
 networks:
   asher_network:
-    driver: bridge  # Default network type (internal communication only)
+    driver: bridge

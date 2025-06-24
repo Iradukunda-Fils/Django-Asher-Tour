@@ -8,6 +8,12 @@ from django.utils.text import slugify
 from django.utils.timezone import now
 from urllib.parse import urlencode
 
+__all__ = [
+    'Category', "TourPackage", 
+    "Destination", "Itinerary", 
+    "PackageMedia", "Review", 
+    "PackageOffer"]
+
 User = get_user_model()
 
 

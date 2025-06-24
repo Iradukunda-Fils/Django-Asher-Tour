@@ -9,6 +9,7 @@ from django.utils.dateparse import parse_date
 from django.contrib import messages
 from django.db.models.functions import Coalesce
 from django.db.models import F
+from django.db.models import Avg
 
 
 # Create your views here.
@@ -23,7 +24,7 @@ class HomeSiteView(ListView):
         queryset = self.model.objects.filter(is_popular=True).select_related('tour_package').annotate(
             avg_percentage=Coalesce(Avg('tour_package__reviews__rating') / max_rating * 100, 0.0)
         )
-        print(queryset.query)
+        # print(queryset.query)
         return queryset
     
     def get_context_data(self, **kwargs):
@@ -174,7 +175,7 @@ class TourPackageDetails(View):
 
         
         package = get_object_or_404(package_q, pk=pk, slug=slug)
-        print(package_q.query)
+        # print(package_q.query)
         
         # Fetch all categories (optimized)
         categories = self.category_model.objects.all()  # Avoid prefetch unless necessary

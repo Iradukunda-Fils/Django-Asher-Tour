@@ -14,12 +14,12 @@ done
 echo "PostgreSQL is up - continuing..."
 
 # Apply database migrations
+
 echo "Applying database migrations..."
-python manage.py makemigrations authentication
-python manage.py migrate authentication
+python manage.py makemigrations system_db
 python manage.py makemigrations
 python manage.py migrate
-python manage.py makemigrations --merge
+# python manage.py makemigrations --merge
 
 # Collect static files
 echo "Collecting static files..."
