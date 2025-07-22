@@ -6,16 +6,13 @@ services:
       context: .
     image: asher_web_image
     container_name: asher_web
-    volumes:
-      - asher_static_volume:/app/staticfiles
-      - asher_media_volume:/app/Asher_Media
       #- .:/app  # Mount source code for development (remove in production)
     env_file:
       - .env
     depends_on:
       - db
-    expose:
-      - "8000"
+    ports:
+      - "8088:80"
     networks:
       - asher_network
 
@@ -35,26 +32,7 @@ services:
       timeout: 5s
       retries: 5
 
-  nginx:
-    image: nginx:alpine
-    container_name: asher_nginx
-    restart: unless-stopped
-    ports:
-      - "8080:80"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d  # Your nginx config should be named `default.conf`
-      - asher_static_volume:/app/staticfiles
-      - asher_media_volume:/app/Asher_Media
-      - ./logs/nginx:/var/log/nginx
-      - ./logs/gunicorn:/app/logs
-    depends_on:
-      - web
-    networks:
-      - asher_network
-
 volumes:
-  asher_static_volume:
-  asher_media_volume:
   asher_postgres_data:
 
 networks:
