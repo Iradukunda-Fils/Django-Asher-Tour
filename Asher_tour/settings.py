@@ -36,7 +36,7 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 ALLOWED_HOSTS = [host for host in ALLOWED_HOSTS if host]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8080",
+    "http://localhost:8088",
     "https://localhost:8080",   
 ]
 
